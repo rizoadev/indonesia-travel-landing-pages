@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journeo Wakatobi – Ekspedisi Biodiversitas Laut Sulawesi Tenggara</title>
+
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Poppins"', 'sans-serif'],
+            serif: ['"DM Serif Display"', 'serif'],
+          },
+          colors: {
+            theme: {
+              DEFAULT: '#171717',
+              dark: '#0a0a0a',
+              accent: '#06B6D4',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #333333;
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+    .badge-price {
+      background-color: #171717;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 4px 12px;
+      font-size: 13px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="selection:bg-[#171717] selection:text-white">
+
+  <!-- ================= HEADER ================= -->
+  <header class="w-full bg-white text-stone-900 border-b border-stone-200 sticky top-0 z-40 transition-shadow shadow-sm">
+    <div class="max-w-[1360px] mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center space-x-2.5 group">
+        <span class="w-9 h-9 rounded-xl bg-[#171717] flex items-center justify-center text-white text-base shadow-md group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-compass"></i>
+        </span>
+        <div class="flex flex-col leading-none">
+          <span class="font-extrabold text-xl tracking-tight">JOURNEO</span>
+          <span class="text-[10px] text-stone-400 font-semibold uppercase tracking-wider">Wakatobi Marine Studio</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center space-x-8 text-xs font-bold uppercase tracking-wider">
+        <a href="#" class="hover:text-[#171717] transition">Beranda</a>
+        <a href="#destinations" class="hover:text-[#171717] transition">Destinasi</a>
+        <a href="#trips" class="hover:text-[#171717] transition">Paket Tour</a>
+        <a href="#why-us" class="hover:text-[#171717] transition">Fasilitas</a>
+        <a href="#articles" class="hover:text-[#171717] transition">Tips Wisata</a>
+        <a href="#contact" class="hover:text-[#171717] transition">Kontak</a>
+      </nav>
+
+      <!-- Action: WA Consultation (NO SHOP ICON) -->
+      <div class="flex items-center space-x-4">
+        <a href="https://wa.me/6287881272246?text=Halo%20JOURNEO%2C%20saya%20tertarik%20booking%20paket%20wisata." target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center space-x-2 bg-[#171717] hover:bg-[#0a0a0a] text-white text-xs font-bold px-5 py-2.5 rounded-full transition shadow">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Konsultasi Trip</span>
+        </a>
+        <button id="burgerBtn" class="hover:text-[#171717] p-1 focus:outline-none lg:hidden text-2xl" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO WITH SEARCH ================= -->
+  <section class="relative w-full min-h-[640px] lg:min-h-[760px] bg-cover bg-center flex items-center justify-center text-white px-6 overflow-hidden" style="background-image: url('images/hero.jpg');">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+
+    <div class="max-w-5xl w-full mx-auto text-center relative z-10 py-16">
+      <span class="inline-block bg-[#171717] text-white text-[10px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4 shadow">
+        ⭐ Destinasi Pilihan Indonesia
+      </span>
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-4 drop-shadow-md">
+        Untouched Underwater Realm of Southeast Sulawesi
+      </h1>
+      <p class="text-sm sm:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow">
+        Jelajahi segitiga karang dunia di Kepulauan Wangi-Wangi, Kaledupa, Tomia, dan Binongko. Menyelam di dinding karang vertikal spektakuler.
+      </p>
+
+      <!-- Search Filter Box -->
+      <div class="bg-white p-3 sm:p-4 rounded-2xl shadow-2xl text-left max-w-4xl mx-auto text-stone-800">
+        <form onsubmit="handleHeroSearch(event)" class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
+          <div class="sm:col-span-4 relative">
+            <input type="text" id="searchKeyword" placeholder="Cari nama objek / kota..." class="w-full bg-stone-50 border border-stone-200 text-xs sm:text-sm py-3 pl-9 pr-3 rounded-xl outline-none focus:border-[#171717] transition">
+            <i class="fa-solid fa-location-dot absolute left-3 top-3.5 text-stone-400 text-sm"></i>
+          </div>
+
+          <div class="sm:col-span-3 relative">
+            <select id="searchDuration" class="w-full bg-stone-50 border border-stone-200 text-stone-700 text-xs sm:text-sm py-3 pl-9 pr-6 rounded-xl outline-none focus:border-[#171717] appearance-none cursor-pointer">
+              <option value="">Semua Durasi</option>
+              <option value="1">1 Hari (Day Trip)</option>
+              <option value="2">2 Hari 1 Malam</option>
+              <option value="3">3 Hari 2 Malam</option>
+              <option value="4">4 Hari atau Lebih</option>
+            </select>
+            <i class="fa-regular fa-clock absolute left-3 top-3.5 text-stone-400 text-sm pointer-events-none"></i>
+            <i class="fa-solid fa-chevron-down absolute right-3 top-3.5 text-stone-400 text-xs pointer-events-none"></i>
+          </div>
+
+          <div class="sm:col-span-3 relative">
+            <select id="searchType" class="w-full bg-stone-50 border border-stone-200 text-stone-700 text-xs sm:text-sm py-3 pl-9 pr-6 rounded-xl outline-none focus:border-[#171717] appearance-none cursor-pointer">
+              <option value="all">Semua Tipe Trip</option>
+              <option value="open">Open Trip (Gabungan)</option>
+              <option value="private">Private Tour Eksklusif</option>
+            </select>
+            <i class="fa-solid fa-users absolute left-3 top-3.5 text-stone-400 text-sm pointer-events-none"></i>
+            <i class="fa-solid fa-chevron-down absolute right-3 top-3.5 text-stone-400 text-xs pointer-events-none"></i>
+          </div>
+
+          <div class="sm:col-span-2">
+            <button type="submit" class="w-full bg-[#171717] hover:bg-[#0a0a0a] text-white text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition shadow flex items-center justify-center space-x-1.5">
+              <span>Cari Paket</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= POPULAR DESTINATIONS ================= -->
+  <section id="destinations" class="w-full py-24 bg-white">
+    <div class="max-w-[1360px] mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1C1C] tracking-tight mb-3">
+          Spot Bahari Unggulan Kepulauan Wakatobi
+        </h2>
+        <p class="text-stone-500 text-sm sm:text-base">
+          Tempat wisata favorit yang wajib Anda masukkan ke dalam daftar liburan berikutnya
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Destination cards -->
+        <div class="relative rounded-2xl overflow-hidden h-96 group cursor-pointer shadow-md" onclick="quickFilterDest('Desa Terapung Suku Bajo Mola')">
+          <img src="images/dest-1.jpg" alt="Desa Terapung Suku Bajo Mola" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-[#171717] transition">Desa Terapung Suku Bajo Mola</h3>
+            <span class="text-xs text-stone-300">Permukiman Asli Penjaga Laut Nusantara</span>
+          </div>
+        </div>
+
+        <div class="relative rounded-2xl overflow-hidden h-96 group cursor-pointer shadow-md" onclick="quickFilterDest('Situs Selam Tebing Sombu')">
+          <img src="images/dest-2.jpg" alt="Situs Selam Tebing Sombu" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-[#171717] transition">Situs Selam Tebing Sombu</h3>
+            <span class="text-xs text-stone-300">Dinding Karang Menghadap Samudra Dalam</span>
+          </div>
+        </div>
+
+        <div class="relative rounded-2xl overflow-hidden h-96 group cursor-pointer shadow-md" onclick="quickFilterDest('Perahu Cadik Tradisional Wakatobi')">
+          <img src="images/dest-3.jpg" alt="Perahu Cadik Tradisional Wakatobi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 right-6">
+            <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-[#171717] transition">Perahu Cadik Tradisional Wakatobi</h3>
+            <span class="text-xs text-stone-300">Berlayar Menyapa Lumba-lumba Pagi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TOUR PACKAGES ================= -->
+  <section id="trips" class="w-full py-24 bg-stone-50 border-y border-stone-200">
+    <div class="max-w-[1360px] mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1C1C] tracking-tight mb-3">
+          Paket Tour Terlaris
+        </h2>
+        <p class="text-stone-500 text-sm sm:text-base">
+          Fasilitas lengkap, jadwal pasti berangkat, dan jaminan harga terbaik tanpa biaya tersembunyi
+        </p>
+      </div>
+
+      <div id="tripGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Trip 1 -->
+        <div class="trip-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-stone-200" data-destination="Wakatobi Underwater Odyssey 4D3N (Tomia & Hoga)">
+          <div>
+            <div class="relative h-64 overflow-hidden bg-stone-100 cursor-pointer" onclick="openTripModal('trip-0')">
+              <img src="images/trip-1.jpg" alt="Wakatobi Underwater Odyssey 4D3N (Tomia & Hoga)" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+              <span class="badge-price absolute bottom-4 left-4">Rp 4.250.000</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-[#1C1C1C] mb-2 hover:text-[#171717] transition cursor-pointer" onclick="openTripModal('trip-0')">
+                Wakatobi Underwater Odyssey 4D3N (Tomia & Hoga)
+              </h3>
+              <p class="text-xs text-[#171717] font-semibold mb-4">Pulau Tomia · Pulau Hoga · Coral Garden Onemobaa · Puncak Kahianga</p>
+              <div class="flex items-center justify-between text-xs text-stone-500 pt-4 border-t border-stone-100">
+                <div class="flex items-center space-x-1 text-[#F59E0B]">
+                  <i class="fa-solid fa-star"></i>
+                  <span class="text-stone-600 font-semibold ml-1">5.0 (92 Ulasan)</span>
+                </div>
+                <div class="flex items-center space-x-1 text-stone-500">
+                  <i class="fa-regular fa-clock"></i>
+                  <span>4 Hari 3 Malam</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openTripModal('trip-0')" class="w-full bg-[#1C1C1C] hover:bg-[#171717] text-white text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition shadow">
+              Lihat Itinerary & Pesan
+            </button>
+          </div>
+        </div>
+
+        <!-- Trip 2 -->
+        <div class="trip-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-stone-200" data-destination="Dolphin Watching Wangi-Wangi & Pantai Sombu 3D2N">
+          <div>
+            <div class="relative h-64 overflow-hidden bg-stone-100 cursor-pointer" onclick="openTripModal('trip-1')">
+              <img src="images/trip-2.jpg" alt="Dolphin Watching Wangi-Wangi & Pantai Sombu 3D2N" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+              <span class="badge-price absolute bottom-4 left-4">Rp 2.950.000</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-[#1C1C1C] mb-2 hover:text-[#171717] transition cursor-pointer" onclick="openTripModal('trip-1')">
+                Dolphin Watching Wangi-Wangi & Pantai Sombu 3D2N
+              </h3>
+              <p class="text-xs text-[#171717] font-semibold mb-4">Perahu Katinting Melihat Kawanan Lumba-lumba Liar · Sunset Sombu Dive Point</p>
+              <div class="flex items-center justify-between text-xs text-stone-500 pt-4 border-t border-stone-100">
+                <div class="flex items-center space-x-1 text-[#F59E0B]">
+                  <i class="fa-solid fa-star"></i>
+                  <span class="text-stone-600 font-semibold ml-1">4.9 (68 Ulasan)</span>
+                </div>
+                <div class="flex items-center space-x-1 text-stone-500">
+                  <i class="fa-regular fa-clock"></i>
+                  <span>3 Hari 2 Malam</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openTripModal('trip-1')" class="w-full bg-[#1C1C1C] hover:bg-[#171717] text-white text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition shadow">
+              Lihat Itinerary & Pesan
+            </button>
+          </div>
+        </div>
+
+        <!-- Trip 3 -->
+        <div class="trip-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-stone-200" data-destination="Private Snorkeling Safari Hoga Island 1D">
+          <div>
+            <div class="relative h-64 overflow-hidden bg-stone-100 cursor-pointer" onclick="openTripModal('trip-2')">
+              <img src="images/trip-3.jpg" alt="Private Snorkeling Safari Hoga Island 1D" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+              <span class="badge-price absolute bottom-4 left-4">Rp 850.000</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-[#1C1C1C] mb-2 hover:text-[#171717] transition cursor-pointer" onclick="openTripModal('trip-2')">
+                Private Snorkeling Safari Hoga Island 1D
+              </h3>
+              <p class="text-xs text-[#171717] font-semibold mb-4">Pasir Putih Hoga · Dinding Karang Pinnacle · Santap Siang Ikan Bakar Tradisional</p>
+              <div class="flex items-center justify-between text-xs text-stone-500 pt-4 border-t border-stone-100">
+                <div class="flex items-center space-x-1 text-[#F59E0B]">
+                  <i class="fa-solid fa-star"></i>
+                  <span class="text-stone-600 font-semibold ml-1">5.0 (45 Ulasan)</span>
+                </div>
+                <div class="flex items-center space-x-1 text-stone-500">
+                  <i class="fa-regular fa-clock"></i>
+                  <span>1 Hari Penuh</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-6 pt-0">
+            <button onclick="openTripModal('trip-2')" class="w-full bg-[#1C1C1C] hover:bg-[#171717] text-white text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition shadow">
+              Lihat Itinerary & Pesan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY CHOOSE US ================= -->
+  <section id="why-us" class="w-full py-24 bg-white">
+    <div class="max-w-[1360px] mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1C1C] tracking-tight mb-3">
+          Standar Pelayanan JOURNEO
+        </h2>
+        <p class="text-stone-500 text-sm sm:text-base">
+          Pengalaman berwisata aman, terpercaya, dan tak terlupakan untuk Anda dan rombongan
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 rounded-2xl bg-stone-100 flex items-center justify-center text-[#171717] text-3xl mb-6 shadow-sm">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#1C1C1C] mb-3">Operator Resmi Berizin</h3>
+          <p class="text-xs sm:text-sm text-stone-500 leading-relaxed max-w-sm">
+            Terdaftar resmi dengan asuransi perjalanan, legalitas lengkap, dan SOP keselamatan bertaraf nasional.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 rounded-2xl bg-stone-100 flex items-center justify-center text-[#171717] text-3xl mb-6 shadow-sm">
+            <i class="fa-solid fa-camera"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#1C1C1C] mb-3">Dokumentasi Profesional</h3>
+          <p class="text-xs sm:text-sm text-stone-500 leading-relaxed max-w-sm">
+            Setiap momen istimewa Anda diabadikan dengan kamera mirrorless dan video aerial drone secara gratis.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <div class="w-20 h-20 rounded-2xl bg-stone-100 flex items-center justify-center text-[#171717] text-3xl mb-6 shadow-sm">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <h3 class="text-xl font-bold text-[#1C1C1C] mb-3">Kuliner Khas & Segar</h3>
+          <p class="text-xs sm:text-sm text-stone-500 leading-relaxed max-w-sm">
+            Pilihan hidangan halal, lezat, dan otentik khas daerah setempat yang dimasak langsung oleh chef dan mitra lokal.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIDEO BANNER ================= -->
+  <section class="relative w-full h-[450px] bg-cover bg-center flex items-center justify-center text-center overflow-hidden" style="background-image: url('images/banner.jpg');">
+    <div class="absolute inset-0 bg-black/45"></div>
+
+    <div class="relative z-10 px-6 max-w-3xl">
+      <button onclick="openVideoModal()" class="w-20 h-20 rounded-full bg-white text-[#171717] flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform mb-6 mx-auto pl-1" aria-label="Play video">
+        <i class="fa-solid fa-play"></i>
+      </button>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 drop-shadow">
+        Rasakan Keajaiban Nusantara
+      </h2>
+      <p class="text-sm sm:text-base text-white/90 max-w-xl mx-auto drop-shadow">
+        Saksikan cuplikan video perjalanan nyata bersama para traveler dan rasakan sensasinya.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= ARTICLES ================= -->
+  <section id="articles" class="w-full py-24 bg-white">
+    <div class="max-w-[1360px] mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1C1C] tracking-tight mb-3">
+          Artikel & Tips Perjalanan
+        </h2>
+        <p class="text-stone-500 text-sm sm:text-base">
+          Informasi terkini dan tips berguna untuk memaksimalkan pengalaman liburan Anda
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-100 hover:border-stone-300 transition">
+          <span class="text-xs text-[#171717] font-bold block mb-2">20 Oktober 2026</span>
+          <h3 class="text-lg font-bold text-[#1C1C1C] mb-2">Mengapa Terumbu Karang Wakatobi Paling Sehat di Dunia?</h3>
+          <p class="text-xs text-stone-500 leading-relaxed">Dilindungi oleh adat lokal kearifan Suku Bajo dan zonasi ketat Taman Nasional Wakatobi.</p>
+        </div>
+
+        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-100 hover:border-stone-300 transition">
+          <span class="text-xs text-[#171717] font-bold block mb-2">11 Oktober 2026</span>
+          <h3 class="text-lg font-bold text-[#1C1C1C] mb-2">Waktu Terbaik Bertemu Kawanan Lumba-lumba di Perairan Wangi-Wangi</h3>
+          <p class="text-xs text-stone-500 leading-relaxed">Berlayar pukul 05.30 WITA saat kawanan ratusan lumba-lumba pemintal melompat di laut tenang.</p>
+        </div>
+
+        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-100 hover:border-stone-300 transition">
+          <span class="text-xs text-[#171717] font-bold block mb-2">4 Oktober 2026</span>
+          <h3 class="text-lg font-bold text-[#1C1C1C] mb-2">Kisah Kearifan Suku Bajo Menyelam Bebas Puluhan Meter Tanpa Tabung</h3>
+          <p class="text-xs text-stone-500 leading-relaxed">Keahlian bernapas alami dan hubungan harmonis manusia laut dengan samudra sejak usia dini.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="contact" class="w-full bg-[#1C1C1C] text-white/70 pt-20 pb-10 text-xs">
+    <div class="max-w-[1360px] mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-16 border-b border-white/10">
+        <div>
+          <div class="flex items-center space-x-2 text-white mb-4">
+            <span class="w-8 h-8 rounded-lg bg-[#171717] flex items-center justify-center text-white text-base">
+              <i class="fa-solid fa-compass"></i>
+            </span>
+            <span class="font-bold text-xl tracking-tight">JOURNEO</span>
+          </div>
+          <p class="leading-relaxed mb-4 text-white/60">
+            Penyedia jasa perjalanan wisata terpercaya dengan paket liburan terkurasi di seluruh nusantara.
+          </p>
+          <div class="space-y-2 text-white/80">
+            <div><i class="fa-solid fa-location-dot text-[#171717] mr-2"></i> Jl. Jendral Sudirman No. 22, Wangi-Wangi, Wakatobi, Sulawesi Tenggara 93791</div>
+            <div><i class="fa-solid fa-phone text-[#171717] mr-2"></i> +62 878-8127-2246</div>
+            <div><i class="fa-solid fa-envelope text-[#171717] mr-2"></i> studio@journeo-wakatobi.id</div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-4 text-sm">Destinasi Populer</h4>
+          <ul class="space-y-2 text-white/60">
+            <li><a href="#" class="hover:text-white transition">Desa Terapung Suku Bajo Mola</a></li>
+            <li><a href="#" class="hover:text-white transition">Situs Selam Tebing Sombu</a></li>
+            <li><a href="#" class="hover:text-white transition">Perahu Cadik Tradisional Wakatobi</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-4 text-sm">Layanan Pelanggan</h4>
+          <ul class="space-y-2 text-white/60">
+            <li><a href="#" class="hover:text-white transition">Konsultasi Custom Trip</a></li>
+            <li><a href="#" class="hover:text-white transition">Syarat & Ketentuan</a></li>
+            <li><a href="#" class="hover:text-white transition">Kebijakan Reschedule</a></li>
+            <li><a href="#" class="hover:text-white transition">Asuransi Perjalanan</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-4 text-sm">Newsletter</h4>
+          <p class="leading-relaxed text-white/60 mb-4">Dapatkan diskon dan info slot open trip terbaru.</p>
+          <form onsubmit="handleNewsletter(event)" class="flex flex-col space-y-2">
+            <input type="email" required placeholder="Email Anda" class="bg-white/10 px-4 py-2.5 text-xs text-white rounded-xl outline-none focus:border-[#171717] border border-transparent">
+            <button type="submit" class="bg-[#171717] hover:bg-[#0a0a0a] text-white font-bold py-2.5 rounded-xl uppercase text-xs">
+              Langganan
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="pt-8 text-center text-white/40 text-[11px]">
+        © 2026 JOURNEO Indonesia. Hak Cipta Dilindungi.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= MOBILE DRAWER ================= -->
+  <div id="sideDrawerBackdrop" class="fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="sideDrawer" class="fixed top-0 right-0 h-full w-[300px] sm:w-[360px] bg-[#1C1C1C] text-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col justify-between p-8 overflow-y-auto">
+    <div>
+      <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-8">
+        <span class="font-extrabold text-2xl tracking-tight">JOURNEO</span>
+        <button id="closeDrawerBtn" class="text-white/60 hover:text-white text-2xl focus:outline-none" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <nav class="flex flex-col space-y-4 mb-8">
+        <span class="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">Navigasi Utama</span>
+        <a href="#" class="drawer-link text-sm font-semibold hover:text-[#171717] transition">Beranda</a>
+        <a href="#destinations" class="drawer-link text-sm font-semibold hover:text-[#171717] transition">Destinasi</a>
+        <a href="#trips" class="drawer-link text-sm font-semibold hover:text-[#171717] transition">Paket Tour</a>
+        <a href="#why-us" class="drawer-link text-sm font-semibold hover:text-[#171717] transition">Fasilitas</a>
+        <a href="#contact" class="drawer-link text-sm font-semibold hover:text-[#171717] transition">Kontak</a>
+      </nav>
+
+      <div class="pt-6 border-t border-white/10">
+        <a href="https://wa.me/6287881272246?text=Halo%20JOURNEO%2C%20saya%20mau%20konsultasi%20paket%20wisata." target="_blank" rel="noopener noreferrer" class="block text-center w-full bg-[#171717] hover:bg-[#0a0a0a] text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl transition shadow mb-4">
+          <i class="fa-brands fa-whatsapp text-sm mr-1"></i> WhatsApp
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= TRIP DETAIL & BOOKING MODAL ================= -->
+  <div id="tripModalBackdrop" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div id="tripModalCard" class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl my-8 transform scale-95 opacity-0 transition-all duration-300 overflow-hidden text-left">
+      <button onclick="closeTripModal()" class="absolute top-5 right-5 z-20 w-9 h-9 bg-stone-100 hover:bg-[#171717] hover:text-white rounded-full flex items-center justify-center text-sm transition focus:outline-none" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="h-64 bg-stone-100 overflow-hidden relative">
+        <img id="tripModalImg" src="" alt="Trip Image" class="w-full h-full object-cover">
+        <div class="absolute bottom-4 left-6 bg-[#171717] text-white text-sm font-bold px-3 py-1 rounded-md shadow" id="tripModalPrice">
+          Rp 0
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8">
+        <div class="flex items-center space-x-2 text-xs text-[#F59E0B] font-semibold mb-2" id="tripModalRating">
+          <i class="fa-solid fa-star"></i>
+          <span>Pasti Berangkat</span>
+        </div>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-[#1C1C1C] mb-4" id="tripModalTitle">Judul Trip</h3>
+        
+        <div class="text-xs sm:text-sm text-stone-600 space-y-4 mb-6 leading-relaxed" id="tripModalDesc"></div>
+
+        <div class="bg-stone-50 p-5 rounded-2xl border border-stone-200">
+          <h4 class="font-bold text-sm text-[#1C1C1C] mb-3">Reservasi Kursi / Konsultasi Jadwal:</h4>
+          <form onsubmit="handleTripBooking(event)" class="space-y-3">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input type="text" id="bookName" required placeholder="Nama Lengkap *" class="bg-white border border-stone-200 px-4 py-2.5 rounded-xl text-xs text-stone-800 outline-none focus:border-[#171717]">
+              <input type="tel" id="bookPhone" required placeholder="Nomor WhatsApp *" class="bg-white border border-stone-200 px-4 py-2.5 rounded-xl text-xs text-stone-800 outline-none focus:border-[#171717]">
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <input type="date" id="bookDate" required class="bg-white border border-stone-200 px-4 py-2.5 rounded-xl text-xs text-stone-800 outline-none focus:border-[#171717]">
+              <select id="bookPax" class="bg-white border border-stone-200 px-4 py-2.5 rounded-xl text-xs text-stone-800 outline-none focus:border-[#171717]">
+                <option value="1">1 Orang</option>
+                <option value="2">2 Orang</option>
+                <option value="4">4 Orang (Grup)</option>
+                <option value="rombongan">> 5 Orang (Private Tour)</option>
+              </select>
+            </div>
+            <button type="submit" class="w-full bg-[#171717] hover:bg-[#0a0a0a] text-white text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition shadow flex items-center justify-center space-x-2">
+              <i class="fa-brands fa-whatsapp text-sm"></i>
+              <span>Kirim Booking via WhatsApp</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= VIDEO MODAL ================= -->
+  <div id="videoModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+    <div class="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl">
+      <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-white/80 hover:text-white text-3xl focus:outline-none transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="relative pt-[56.25%] w-full bg-black">
+        <iframe id="videoIframe" class="absolute inset-0 w-full h-full" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST ================= -->
+  <div id="toastNotification" class="fixed bottom-6 right-6 bg-[#1C1C1C] text-white px-6 py-4 rounded-xl shadow-2xl flex items-center space-x-3 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <i class="fa-solid fa-circle-check text-[#171717] text-lg"></i>
+    <span id="toastMessage" class="text-xs font-sans tracking-wide">Pesan terkirim!</span>
+  </div>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    const TRIPS_DATA = {
+      'trip-0': {
+        title: 'Wakatobi Underwater Odyssey 4D3N (Tomia & Hoga)',
+        price: 'Rp 4.250.000 / orang',
+        rating: '5.0 (92 Ulasan)',
+        image: 'images/trip-1.jpg',
+        desc: `<p class="font-bold text-xs uppercase mb-1">Rute & Destinasi:</p><p class="text-xs mb-3">Pulau Tomia · Pulau Hoga · Coral Garden Onemobaa · Puncak Kahianga</p><p class="font-bold text-xs uppercase mb-1">Fasilitas Termasuk:</p><p class="text-xs">Speedboat Antar Pulau, Penginapan Resort Tepi Laut, 3x Makan Menu Ikan Segar Wakatobi, Alat Snorkeling & Guide.</p>`
+      },
+      'trip-1': {
+        title: 'Dolphin Watching Wangi-Wangi & Pantai Sombu 3D2N',
+        price: 'Rp 2.950.000 / orang',
+        rating: '4.9 (68 Ulasan)',
+        image: 'images/trip-2.jpg',
+        desc: `<p class="font-bold text-xs uppercase mb-1">Rute & Destinasi:</p><p class="text-xs mb-3">Perahu Katinting Melihat Kawanan Lumba-lumba Liar · Sunset Sombu Dive Point</p><p class="font-bold text-xs uppercase mb-1">Fasilitas Termasuk:</p><p class="text-xs">Transportasi Mobil AC Wangi-Wangi, Hotel 2 Malam AC, Perahu Pengejar Lumba-lumba, Guide Lokal Asli Bajo.</p>`
+      },
+      'trip-2': {
+        title: 'Private Snorkeling Safari Hoga Island 1D',
+        price: 'Rp 850.000 / orang',
+        rating: '5.0 (45 Ulasan)',
+        image: 'images/trip-3.jpg',
+        desc: `<p class="font-bold text-xs uppercase mb-1">Rute & Destinasi:</p><p class="text-xs mb-3">Pasir Putih Hoga · Dinding Karang Pinnacle · Santap Siang Ikan Bakar Tradisional</p><p class="font-bold text-xs uppercase mb-1">Fasilitas Termasuk:</p><p class="text-xs">Private Wooden Boat, Pemandu Bawah Air Profesional, Kamera Underwater Olympus TG, Air Kelapa Muda.</p>`
+      }
+    };
+
+    // Drawer
+    const burgerBtn = document.getElementById('burgerBtn');
+    const sideDrawer = document.getElementById('sideDrawer');
+    const sideDrawerBackdrop = document.getElementById('sideDrawerBackdrop');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+
+    function toggleSideDrawer(open) {
+      if (open) {
+        sideDrawerBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+        sideDrawer.classList.remove('translate-x-full');
+        document.body.style.overflow = 'hidden';
+      } else {
+        sideDrawerBackdrop.classList.add('opacity-0', 'pointer-events-none');
+        sideDrawer.classList.add('translate-x-full');
+        document.body.style.overflow = '';
+      }
+    }
+    if (burgerBtn) burgerBtn.addEventListener('click', () => toggleSideDrawer(true));
+    closeDrawerBtn.addEventListener('click', () => toggleSideDrawer(false));
+    sideDrawerBackdrop.addEventListener('click', () => toggleSideDrawer(false));
+    drawerLinks.forEach(l => l.addEventListener('click', () => toggleSideDrawer(false)));
+
+    // Trip Modal
+    const tripModalBackdrop = document.getElementById('tripModalBackdrop');
+    const tripModalCard = document.getElementById('tripModalCard');
+    const tripModalImg = document.getElementById('tripModalImg');
+    const tripModalPrice = document.getElementById('tripModalPrice');
+    const tripModalRating = document.getElementById('tripModalRating');
+    const tripModalTitle = document.getElementById('tripModalTitle');
+    const tripModalDesc = document.getElementById('tripModalDesc');
+    let currentSelectedTrip = '';
+
+    function openTripModal(key) {
+      const data = TRIPS_DATA[key];
+      if (!data) return;
+      currentSelectedTrip = data.title;
+      tripModalImg.src = data.image;
+      tripModalPrice.textContent = data.price;
+      tripModalRating.innerHTML = `<i class="fa-solid fa-star"></i> <span>${data.rating}</span>`;
+      tripModalTitle.textContent = data.title;
+      tripModalDesc.innerHTML = data.desc;
+
+      tripModalBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        tripModalCard.classList.remove('scale-95', 'opacity-0');
+        tripModalCard.classList.add('scale-100', 'opacity-100');
+      }, 50);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeTripModal() {
+      tripModalCard.classList.remove('scale-100', 'opacity-100');
+      tripModalCard.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        tripModalBackdrop.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+      }, 200);
+    }
+    tripModalBackdrop.addEventListener('click', (e) => { if (e.target === tripModalBackdrop) closeTripModal(); });
+
+    function handleTripBooking(e) {
+      e.preventDefault();
+      const name = document.getElementById('bookName').value;
+      const phone = document.getElementById('bookPhone').value;
+      const date = document.getElementById('bookDate').value;
+      const pax = document.getElementById('bookPax').value;
+      closeTripModal();
+
+      const msg = encodeURIComponent(`Halo JOURNEO, saya ${name} (${phone}) ingin booking paket "${currentSelectedTrip}" untuk tanggal ${date} (${pax} pax). Mohon info ketersediaan slot.`);
+      window.open(`https://wa.me/6287881272246?text=${msg}`, '_blank');
+      showToast(`Terima kasih ${name}, diarahkan ke WhatsApp JOURNEO!`);
+    }
+
+    // Video Modal
+    const videoModal = document.getElementById('videoModal');
+    const videoIframe = document.getElementById('videoIframe');
+    function openVideoModal() {
+      videoIframe.src = "https://player.vimeo.com/video/96728225?autoplay=1";
+      videoModal.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeVideoModal() {
+      videoIframe.src = "";
+      videoModal.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
+    }
+    videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
+
+    // Search Filter
+    function handleHeroSearch(e) {
+      e.preventDefault();
+      const kw = document.getElementById('searchKeyword').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.trip-card');
+      let matches = 0;
+      cards.forEach(card => {
+        const title = card.innerText.toLowerCase();
+        if (!kw || title.includes(kw)) {
+          card.style.display = 'flex';
+          matches++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      document.getElementById('trips').scrollIntoView({ behavior: 'smooth' });
+      showToast(`Ditemukan ${matches} paket yang sesuai.`);
+    }
+
+    function quickFilterDest(destName) {
+      document.getElementById('searchKeyword').value = destName;
+      document.getElementById('trips').scrollIntoView({ behavior: 'smooth' });
+      const cards = document.querySelectorAll('.trip-card');
+      cards.forEach(card => {
+        const dest = card.getAttribute('data-destination');
+        if (dest && dest.toLowerCase().includes(destName.toLowerCase())) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      showToast(`Menampilkan paket untuk ${destName}`);
+    }
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      showToast('Terima kasih! Anda telah terdaftar dalam newsletter promo JOURNEO.');
+      e.target.reset();
+    }
+
+    // Toast
+    const toastEl = document.getElementById('toastNotification');
+    const toastMsgEl = document.getElementById('toastMessage');
+    let toastTimeout;
+    function showToast(msg) {
+      clearTimeout(toastTimeout);
+      toastMsgEl.textContent = msg;
+      toastEl.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+      toastTimeout = setTimeout(() => {
+        toastEl.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+      }, 4000);
+    }
+
+    // Escape Key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeTripModal();
+        closeVideoModal();
+        toggleSideDrawer(false);
+      }
+    });
+  </script>
+
+  <!-- 45-Second Preview Paywall -->
+  <script src="paywall.js"></script>
+</body>
+</html>

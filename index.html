@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koleksi 20 Template Landing Page Tour & Travel Indonesia</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Poppins"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              coral: '#FF4A52',
+              teal: '#1ABC9C',
+              dark: '#0e1217',
+              surface: '#181f26',
+              border: '#26313d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0b0e13;
+      color: #e2e8f0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .glass-nav {
+      background: rgba(14, 18, 23, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .card-glow:hover {
+      box-shadow: 0 20px 40px -15px rgba(255, 74, 82, 0.2), 0 0 0 1px rgba(255, 74, 82, 0.35);
+    }
+  </style>
+</head>
+<body class="selection:bg-[#FF4A52] selection:text-white min-h-screen flex flex-col justify-between">
+
+  <!-- ================= TOP NAVBAR ================= -->
+  <header class="sticky top-0 z-40 border-b border-[#26313d] glass-nav transition-all">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#FF4A52] to-[#ff7b81] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-compass text-lg"></i>
+        </div>
+        <div>
+          <span class="font-extrabold text-lg text-white tracking-wide block leading-none">TravelTheme ID</span>
+          <span class="text-[10px] text-[#FF4A52] uppercase tracking-widest font-semibold">20 ThemeForest Travel Collection</span>
+        </div>
+      </a>
+
+      <!-- WhatsApp Action -->
+      <div class="flex items-center space-x-4">
+        <a href="https://wa.me/6287881272246?text=Halo%20saya%20tertarik%20membeli%20koleksi%20template%20tour%20travel%20ini." target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center space-x-2 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold px-5 py-2.5 rounded-full transition shadow-lg shadow-[#25D366]/20">
+          <i class="fa-brands fa-whatsapp text-base"></i>
+          <span>Hubungi WhatsApp (+62 878-8127-2246)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= CONTROL TOOLBAR (NO HERO BOX) ================= -->
+  <section class="max-w-7xl w-full mx-auto px-6 pt-8 pb-4">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 bg-[#181f26] border border-[#26313d] p-4 rounded-2xl">
+      <!-- Search Bar -->
+      <div class="relative w-full md:w-80">
+        <input type="text" id="searchInput" oninput="filterCards()" placeholder="Cari nama tema / destinasi..." class="w-full bg-[#0b0e13] border border-[#26313d] text-xs text-white placeholder-stone-500 rounded-xl py-2.5 pl-10 pr-4 outline-none focus:border-[#FF4A52] transition">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-stone-500 text-xs"></i>
+      </div>
+
+      <!-- Filter Category Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-1.5 w-full md:w-auto" id="filterTabs">
+        <button onclick="setFilter('all', this)" class="filter-btn active bg-[#FF4A52] text-white text-xs font-bold px-3.5 py-2 rounded-xl transition">Semua (20)</button>
+        <button onclick="setFilter('bahari', this)" class="filter-btn bg-[#0b0e13] hover:bg-stone-800 text-stone-300 text-xs font-bold px-3.5 py-2 rounded-xl transition border border-[#26313d]">Bahari & Phinisi</button>
+        <button onclick="setFilter('gunung', this)" class="filter-btn bg-[#0b0e13] hover:bg-stone-800 text-stone-300 text-xs font-bold px-3.5 py-2 rounded-xl transition border border-[#26313d]">Gunung & Trekking</button>
+        <button onclick="setFilter('culture', this)" class="filter-btn bg-[#0b0e13] hover:bg-stone-800 text-stone-300 text-xs font-bold px-3.5 py-2 rounded-xl transition border border-[#26313d]">Budaya & Kuliner</button>
+        <button onclick="setFilter('luxury', this)" class="filter-btn bg-[#0b0e13] hover:bg-stone-800 text-stone-300 text-xs font-bold px-3.5 py-2 rounded-xl transition border border-[#26313d]">Luxury & Honeymoon</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GALLERY GRID (20 ITEMS) ================= -->
+  <main class="max-w-7xl mx-auto px-6 pb-28 relative z-10">
+    <div id="galleryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Card Template Generator Output -->
+    </div>
+  </main>
+
+  <!-- ================= BOTTOM PURCHASE BANNER ================= -->
+  <section class="w-full bg-[#181f26] border-t border-[#26313d] py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="text-xs font-bold text-[#FF4A52] uppercase tracking-widest block mb-2">Peluang Bisnis Tour & Travel</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Miliki 20 Template Siap Jual & Pakai</h2>
+      <p class="text-xs sm:text-sm text-stone-400 max-w-xl mx-auto leading-relaxed mb-8">
+        Setiap template dibangun murni dengan HTML5 + Tailwind CSS CDN, responsif mobile-first, tanpa ketergantungan node modules, dan mudah disesuaikan untuk klien travel manapun.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://wa.me/6287881272246?text=Halo%20saya%20tertarik%20membeli%20bundle%2020%20landing%20page%20travel%20ini." target="_blank" rel="noopener noreferrer" class="bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold px-8 py-3.5 rounded-full transition shadow-lg flex items-center space-x-2">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Hubungi via WhatsApp (+62 878-8127-2246)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="w-full bg-[#0b0e13] text-stone-500 py-8 px-6 text-xs text-center border-t border-[#181f26]">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        © 2026 TravelTheme ID — 20 ThemeForest Inspired Travel Landing Pages. Pure HTML5 + Tailwind CSS CDN.
+      </div>
+      <div>
+        WhatsApp: <a href="https://wa.me/6287881272246" target="_blank" class="text-stone-300 hover:text-white transition">+62 878-8127-2246</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= LIVE PREVIEW MODAL ================= -->
+  <div id="previewModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex flex-col opacity-0 pointer-events-none transition-all duration-300">
+    <div class="h-16 bg-[#181f26] border-b border-[#26313d] px-6 flex items-center justify-between flex-shrink-0">
+      <div class="flex items-center space-x-3">
+        <span class="w-3 h-3 rounded-full bg-red-500"></span>
+        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+        <span id="modalPreviewTitle" class="text-xs font-bold text-white ml-2">Preview</span>
+      </div>
+
+      <div class="hidden sm:flex items-center space-x-1 bg-[#0b0e13] p-1 rounded-lg border border-[#26313d]">
+        <button onclick="setPreviewViewport('desktop')" id="vpDesktop" class="px-3 py-1 text-xs font-semibold rounded bg-[#FF4A52] text-white transition">
+          <i class="fa-solid fa-desktop mr-1"></i> Desktop
+        </button>
+        <button onclick="setPreviewViewport('tablet')" id="vpTablet" class="px-3 py-1 text-xs font-semibold rounded text-stone-400 hover:text-white transition">
+          <i class="fa-solid fa-tablet-screen-button mr-1"></i> Tablet
+        </button>
+        <button onclick="setPreviewViewport('mobile')" id="vpMobile" class="px-3 py-1 text-xs font-semibold rounded text-stone-400 hover:text-white transition">
+          <i class="fa-solid fa-mobile-screen-button mr-1"></i> Mobile
+        </button>
+      </div>
+
+      <div class="flex items-center space-x-3">
+        <a id="modalExternalLink" href="#" target="_blank" class="text-xs text-stone-300 hover:text-[#FF4A52] transition flex items-center space-x-1">
+          <span class="hidden md:inline">Tab Baru</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+        <button onclick="closeLivePreview()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="flex-grow flex items-center justify-center p-2 sm:p-4 overflow-hidden">
+      <div id="previewFrameWrapper" class="w-full h-full transition-all duration-300 rounded-xl overflow-hidden shadow-2xl bg-white">
+        <iframe id="previewIframe" src="" class="w-full h-full border-0"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FLOATING WHATSAPP ================= -->
+  <a href="https://wa.me/6287881272246?text=Halo%20saya%20tertarik%20membeli%20full%20version%20landing%20page%20template%20ini." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20bd5a] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl transition hover:scale-110 shadow-[#25D366]/40" title="Chat di WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    const TEMPLATES_DATA = [
+      { id: '01-grand-tour', tf: 'Grand Tour (ThemeGoods)', name: 'Grand Tour – Labuan Bajo & Sumba', cat: 'bahari', badge: '#01 SAILING', desc: 'Sailing Komodo Phinisi, Savana Puru Kambera, dan Laguna Derawan dengan filter destinasi interaktif.' },
+      { id: '02-setsail', tf: 'SetSail (Qode Interactive)', name: 'SetSail – Bali & Nusa Penida', cat: 'bahari', badge: '#02 SUMMER', desc: 'Eksplorasi pantai barat Nusa Penida Kelingking, snorkeling Manta Bay, dan beach club Canggu.' },
+      { id: '03-roam', tf: 'Roam (Qode Interactive)', name: 'Roam – Raja Ampat Expedition', cat: 'bahari', badge: '#03 EXPEDITION', desc: 'Editorial visual gugusan karst zamrud Piaynemo, laguna tersembunyi Misool, dan penyelaman hiu Wayag.' },
+      { id: '04-traveler', tf: 'Traveler (ShineTheme)', name: 'Traveler – Jogja & Borobudur Heritage', cat: 'culture', badge: '#04 OTA PORTAL', desc: 'Sunrise Punthuk Setumbu Borobudur, sunset Prambanan, Lava Tour Merapi jeep 4x4, dan kuliner keraton.' },
+      { id: '05-gotravel', tf: 'GoTravel (Elated/Qode)', name: 'GoTravel – 3 Gili & Sembalun Lombok', cat: 'bahari', badge: '#05 TROPICAL', desc: 'Berenang bersama penyu liar di 3 Gili, kebun stroberi kaki Rinjani di Sembalun, dan Pantai Pink.' },
+      { id: '06-wanderland', tf: 'Wanderland (Mikado/Qode)', name: 'Wanderland – Bromo & Kawah Ijen', cat: 'gunung', badge: '#06 VOLCANO', desc: 'Open trip Bromo midnight sunrise, lautan pasir berbisik, savana Bukit Teletubbies, dan Blue Fire Ijen.' },
+      { id: '07-citytours', tf: 'CityTours (KreativoPro)', name: 'CityTours – Jakarta & Bandung Heritage', cat: 'culture', badge: '#07 SIGHTSEEING', desc: 'Telusuri jejak kolonial Batavia Kota Tua, kuliner Glodok legendaris, dan Kawah Putih Ciwidey Bandung.' },
+      { id: '08-tevily', tf: 'Tevily (ThemeMascot)', name: 'Tevily – Rinjani Trekking Expedition', cat: 'gunung', badge: '#08 TREKKING', desc: 'Pendakian puncak Rinjani 3726 MDPL Sembalun, camping danau Segara Anak, dan pemandian air panas.' },
+      { id: '09-tripo', tf: 'Tripo (ThemeArc)', name: 'Tripo – Derawan & Maratua Islands', cat: 'bahari', badge: '#09 WHALESHARK', desc: 'Berenang bersama hiu paus Talisayan, danau ubur-ubur tanpa sengat Kakaban, dan villa terapung Maratua.' },
+      { id: '10-altair', tf: 'Altair (ThemeGoods)', name: 'Altair – Luxury Sumba & Amanjiwo', cat: 'luxury', badge: '#10 BESPOKE LUXURY', desc: 'Resor kelas dunia Nihi Sumba, jamuan istana Amanjiwo Borobudur, dan charter phinisi privat VIP.' },
+      { id: '11-tourpress', tf: 'TourPress (InspiryThemes)', name: 'TourPress – Tana Toraja Heritage', cat: 'culture', badge: '#11 CULTURE', desc: 'Desa adat Kete Kesu, makam tebing gua Londa, upacara adat Rambu Solo, dan kopi arabika Batutumonga.' },
+      { id: '12-tourhub', tf: 'Tourhub (ThemeArc)', name: 'Tourhub – Karimunjawa Backpacker', cat: 'bahari', badge: '#12 BACKPACKER', desc: 'Open trip hemat pulau Karibia Jawa, penangkaran hiu Menjangan, pasir timbul Gosong Cemara, dan camping pantai.' },
+      { id: '13-embark', tf: 'Embark (BrandExponents)', name: 'Embark – Bali Rafting & Watersports', cat: 'gunung', badge: '#13 ADRENALINE', desc: 'Arung jeram Sungai Ayung Ubud, petualangan motor ATV terowongan gua, dan les selancar Kuta.' },
+      { id: '14-traveltime', tf: 'Travel Time (Anps)', name: 'Travel Time – Belitung & Pulau Seribu', cat: 'bahari', badge: '#14 HOPPING', desc: 'Batu granit raksasa Laskar Pelangi, mercusuar Belanda 1882 Pulau Lengkuas, dan eco-lodge Pulau Macan.' },
+      { id: '15-lovetravel', tf: 'Love Travel (Nicdark)', name: 'Love Travel – Romantic Bali Honeymoon', cat: 'luxury', badge: '#15 HONEYMOON', desc: 'Villa kolam privat Ubud, sarapan terapung floating breakfast mawar, dan makan malam lilin seafood Jimbaran.' },
+      { id: '16-solaris', tf: 'Solaris (AxiomThemes)', name: 'Solaris – Tanjung Puting Safari', cat: 'culture', badge: '#16 ECO SAFARI', desc: 'Susuri Sungai Sekonyer dengan kapal klotok kayu, suaka orangutan liar Camp Leakey, dan safari malam kunang-kunang.' },
+      { id: '17-trawell', tf: 'Trawell (Meks)', name: 'Trawell – Geopark Kaldera Toba', cat: 'culture', badge: '#17 GEOPARK', desc: 'Panorama teletubbies Bukit Holbung, Air Terjun Sipiso-piso, dan tarian boneka kayu Sigale-gale Samosir.' },
+      { id: '18-explora', tf: 'Explora (VamTam)', name: 'Explora – Minang Heritage & Kuliner', cat: 'culture', badge: '#18 CULINARY', desc: 'Tebing raksasa Lembah Harau, Jam Gadang Bukittinggi, Ngarai Sianok, dan workshop rendang kayu bakar.' },
+      { id: '19-panatour', tf: 'Panatour (Zemez)', name: 'Panatour – Malang & Batu Family Tour', cat: 'family', badge: '#19 FAMILY', desc: 'Wisata ramah anak Jatim Park 3 Dino Park, Museum Angkut, petik apel hijau di kebun, dan labirin Coban Rondo.' },
+      { id: '20-journeo', tf: 'Journeo (Envato Elite)', name: 'Journeo – Wakatobi Marine Studio', cat: 'bahari', badge: '#20 BOUTIQUE', desc: 'Studio kelautan kepulauan Wangi-Wangi, Hoga, dan Tomia. Lumba-lumba liar fajar dan kearifan Suku Bajo.' }
+    ];
+
+    function renderGallery() {
+      const grid = document.getElementById('galleryGrid');
+      grid.innerHTML = TEMPLATES_DATA.map(item => `
+        <div class="template-card bg-[#181f26] border border-[#26313d] rounded-2xl overflow-hidden card-glow transition-all duration-300 flex flex-col justify-between" data-category="${item.cat}" data-title="${item.name.toLowerCase()} ${item.tf.toLowerCase()}">
+          <div>
+            <div class="relative overflow-hidden group bg-stone-900 border-b border-[#26313d]">
+              <img src="screenshots/${item.id}.jpg" alt="${item.name}" class="w-full h-56 object-cover object-top group-hover:scale-105 transition-transform duration-500">
+              <span class="absolute top-3 left-3 bg-[#0b0e13]/90 backdrop-blur-md text-[#FF4A52] text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider border border-[#FF4A52]/30">${item.badge}</span>
+              <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-3">
+                <button onclick="openLivePreview('${item.id}', '${item.name}')" class="bg-white text-stone-900 text-xs font-bold px-4 py-2 rounded-full shadow hover:bg-stone-100 transition">
+                  <i class="fa-solid fa-eye mr-1.5"></i> Quick View
+                </button>
+                <a href="${item.id}/index.html" target="_blank" class="bg-[#FF4A52] text-white text-xs font-bold px-4 py-2 rounded-full shadow hover:bg-[#e83e46] transition">
+                  <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Buka Tab
+                </a>
+              </div>
+            </div>
+            <div class="p-6">
+              <span class="text-[10px] font-bold text-stone-400 block mb-1 uppercase tracking-wider">${item.tf}</span>
+              <h3 class="text-xl font-bold text-white mb-2">${item.name}</h3>
+              <p class="text-xs text-stone-400 leading-relaxed mb-4">${item.desc}</p>
+            </div>
+          </div>
+          <div class="p-6 pt-0 flex items-center justify-between border-t border-[#26313d] mt-auto">
+            <a href="${item.id}/index.html" target="_blank" class="text-xs font-bold text-white hover:text-[#FF4A52] transition flex items-center">
+              <span>Buka Landing Page</span>
+              <i class="fa-solid fa-arrow-right text-[10px] ml-1.5"></i>
+            </a>
+            <button onclick="orderViaWa('${item.name}')" class="text-xs font-bold text-[#25D366] hover:underline flex items-center">
+              <i class="fa-brands fa-whatsapp text-sm mr-1"></i> Beli Full
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    renderGallery();
+
+    function setFilter(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.className = 'filter-btn bg-[#0b0e13] hover:bg-stone-800 text-stone-300 text-xs font-bold px-3.5 py-2 rounded-xl transition border border-[#26313d]';
+      });
+      btn.className = 'filter-btn active bg-[#FF4A52] text-white text-xs font-bold px-3.5 py-2 rounded-xl transition';
+
+      const cards = document.querySelectorAll('.template-card');
+      cards.forEach(card => {
+        if (cat === 'all' || card.getAttribute('data-category') === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function filterCards() {
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.template-card');
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        if (title.includes(q)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Live Preview Modal
+    const previewModal = document.getElementById('previewModal');
+    const previewIframe = document.getElementById('previewIframe');
+    const modalPreviewTitle = document.getElementById('modalPreviewTitle');
+    const modalExternalLink = document.getElementById('modalExternalLink');
+    const previewFrameWrapper = document.getElementById('previewFrameWrapper');
+
+    function openLivePreview(folder, title) {
+      const url = `${folder}/index.html`;
+      previewIframe.src = url;
+      modalPreviewTitle.textContent = title;
+      modalExternalLink.href = url;
+      setPreviewViewport('desktop');
+
+      previewModal.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLivePreview() {
+      previewIframe.src = "";
+      previewModal.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
+    }
+
+    function setPreviewViewport(mode) {
+      const btnD = document.getElementById('vpDesktop');
+      const btnT = document.getElementById('vpTablet');
+      const btnM = document.getElementById('vpMobile');
+
+      [btnD, btnT, btnM].forEach(b => {
+        b.className = 'px-3 py-1 text-xs font-semibold rounded text-stone-400 hover:text-white transition';
+      });
+
+      if (mode === 'desktop') {
+        previewFrameWrapper.style.maxWidth = '100%';
+        previewFrameWrapper.style.height = '100%';
+        btnD.className = 'px-3 py-1 text-xs font-semibold rounded bg-[#FF4A52] text-white transition';
+      } else if (mode === 'tablet') {
+        previewFrameWrapper.style.maxWidth = '768px';
+        previewFrameWrapper.style.height = '95%';
+        btnT.className = 'px-3 py-1 text-xs font-semibold rounded bg-[#FF4A52] text-white transition';
+      } else if (mode === 'mobile') {
+        previewFrameWrapper.style.maxWidth = '390px';
+        previewFrameWrapper.style.height = '844px';
+        btnM.className = 'px-3 py-1 text-xs font-semibold rounded bg-[#FF4A52] text-white transition';
+      }
+    }
+
+    function orderViaWa(templateName) {
+      const msg = encodeURIComponent(`Halo, saya tertarik membeli full version dari "${templateName}". Mohon info harga & lisensinya.`);
+      window.open(`https://wa.me/6287881272246?text=${msg}`, '_blank');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLivePreview();
+      }
+    });
+  </script>
+
+</body>
+</html>

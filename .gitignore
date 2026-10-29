@@ -1,0 +1,10 @@
+.wrangler/
+.agent_context/
+AGENTS.md
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+temp_*
+test_*.png
+test_*.html
