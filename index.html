@@ -47,12 +47,37 @@
       -webkit-font-smoothing: antialiased;
     }
     .glass-nav {
-      background: rgba(14, 18, 23, 0.88);
+      background: rgba(14, 18, 23, 0.92);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
     }
     .card-glow:hover {
-      box-shadow: 0 20px 40px -15px rgba(255, 74, 82, 0.2), 0 0 0 1px rgba(255, 74, 82, 0.35);
+      box-shadow: 0 20px 40px -15px rgba(255, 74, 82, 0.25), 0 0 0 1px rgba(255, 74, 82, 0.4);
+    }
+    /* Device frames for quick view */
+    .viewport-desktop {
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      border-radius: 16px;
+      border: 1px solid #26313d;
+    }
+    .viewport-tablet {
+      width: 768px;
+      height: 98%;
+      max-width: 90vw;
+      border-radius: 28px;
+      border: 12px solid #1f2937;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    }
+    .viewport-mobile {
+      width: 390px;
+      height: 844px;
+      max-height: 95vh;
+      max-width: 92vw;
+      border-radius: 36px;
+      border: 12px solid #1f2937;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.7);
     }
   </style>
 </head>
@@ -104,8 +129,7 @@
   <!-- ================= GALLERY GRID (20 ITEMS) ================= -->
   <main class="max-w-7xl mx-auto px-6 pb-28 relative z-10">
     <div id="galleryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Card Template Generator Output -->
+      <!-- Injected via JavaScript -->
     </div>
   </main>
 
@@ -138,42 +162,55 @@
     </div>
   </footer>
 
-  <!-- ================= LIVE PREVIEW MODAL ================= -->
+  <!-- ================= REFINED LIVE PREVIEW MODAL ================= -->
   <div id="previewModal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex flex-col opacity-0 pointer-events-none transition-all duration-300">
-    <div class="h-16 bg-[#181f26] border-b border-[#26313d] px-6 flex items-center justify-between flex-shrink-0">
+    <!-- Top toolbar -->
+    <div class="h-16 bg-[#181f26] border-b border-[#26313d] px-6 flex items-center justify-between flex-shrink-0 z-30">
       <div class="flex items-center space-x-3">
-        <span class="w-3 h-3 rounded-full bg-red-500"></span>
-        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
-        <span class="w-3 h-3 rounded-full bg-green-500"></span>
-        <span id="modalPreviewTitle" class="text-xs font-bold text-white ml-2">Preview</span>
+        <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+        <span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>
+        <span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>
+        <span id="modalPreviewTitle" class="text-xs font-bold text-white ml-2 truncate max-w-xs sm:max-w-md">Preview</span>
       </div>
 
-      <div class="hidden sm:flex items-center space-x-1 bg-[#0b0e13] p-1 rounded-lg border border-[#26313d]">
-        <button onclick="setPreviewViewport('desktop')" id="vpDesktop" class="px-3 py-1 text-xs font-semibold rounded bg-[#FF4A52] text-white transition">
-          <i class="fa-solid fa-desktop mr-1"></i> Desktop
+      <!-- Viewport switcher buttons -->
+      <div class="flex items-center space-x-1 bg-[#0b0e13] p-1 rounded-xl border border-[#26313d]">
+        <button onclick="setPreviewViewport('desktop')" id="vpDesktop" class="px-3 py-1.5 text-xs font-semibold rounded-lg bg-[#FF4A52] text-white transition flex items-center space-x-1.5" title="Tampilan Desktop">
+          <i class="fa-solid fa-desktop"></i>
+          <span class="hidden sm:inline">Desktop</span>
         </button>
-        <button onclick="setPreviewViewport('tablet')" id="vpTablet" class="px-3 py-1 text-xs font-semibold rounded text-stone-400 hover:text-white transition">
-          <i class="fa-solid fa-tablet-screen-button mr-1"></i> Tablet
+        <button onclick="setPreviewViewport('tablet')" id="vpTablet" class="px-3 py-1.5 text-xs font-semibold rounded-lg text-stone-400 hover:text-white transition flex items-center space-x-1.5" title="Tampilan Tablet">
+          <i class="fa-solid fa-tablet-screen-button"></i>
+          <span class="hidden sm:inline">Tablet</span>
         </button>
-        <button onclick="setPreviewViewport('mobile')" id="vpMobile" class="px-3 py-1 text-xs font-semibold rounded text-stone-400 hover:text-white transition">
-          <i class="fa-solid fa-mobile-screen-button mr-1"></i> Mobile
+        <button onclick="setPreviewViewport('mobile')" id="vpMobile" class="px-3 py-1.5 text-xs font-semibold rounded-lg text-stone-400 hover:text-white transition flex items-center space-x-1.5" title="Tampilan Mobile">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+          <span class="hidden sm:inline">Mobile</span>
         </button>
       </div>
 
+      <!-- Right actions -->
       <div class="flex items-center space-x-3">
-        <a id="modalExternalLink" href="#" target="_blank" class="text-xs text-stone-300 hover:text-[#FF4A52] transition flex items-center space-x-1">
-          <span class="hidden md:inline">Tab Baru</span>
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <a id="modalExternalLink" href="#" target="_blank" class="hidden sm:flex text-xs font-bold text-stone-300 hover:text-[#FF4A52] transition items-center space-x-1.5 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-lg" title="Buka di tab baru">
+          <span>Tab Baru</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
         </a>
-        <button onclick="closeLivePreview()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">
-          <i class="fa-solid fa-xmark"></i>
+        <button onclick="closeLivePreview()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-[#FF4A52] text-white flex items-center justify-center transition focus:outline-none" aria-label="Tutup preview">
+          <i class="fa-solid fa-xmark text-sm"></i>
         </button>
       </div>
     </div>
 
-    <div class="flex-grow flex items-center justify-center p-2 sm:p-4 overflow-hidden">
-      <div id="previewFrameWrapper" class="w-full h-full transition-all duration-300 rounded-xl overflow-hidden shadow-2xl bg-white">
-        <iframe id="previewIframe" src="" class="w-full h-full border-0"></iframe>
+    <!-- Iframe display area with loading skeleton and backdrop click handler -->
+    <div id="previewBackdropArea" class="flex-grow flex items-center justify-center p-3 sm:p-5 overflow-hidden relative cursor-pointer" onclick="handleBackdropClick(event)">
+      <!-- Loading indicator -->
+      <div id="iframeLoader" class="absolute inset-0 flex flex-col items-center justify-center bg-black/40 pointer-events-none z-10 transition-opacity">
+        <div class="w-10 h-10 border-4 border-stone-700 border-t-[#FF4A52] rounded-full animate-spin mb-3"></div>
+        <span class="text-xs text-stone-300 font-semibold">Memuat Live Template...</span>
+      </div>
+
+      <div id="previewFrameWrapper" class="viewport-desktop transition-all duration-300 overflow-hidden shadow-2xl bg-white relative cursor-default" onclick="event.stopPropagation()">
+        <iframe id="previewIframe" src="" class="w-full h-full border-0" onload="hideIframeLoader()"></iframe>
       </div>
     </div>
   </div>
@@ -213,29 +250,30 @@
       grid.innerHTML = TEMPLATES_DATA.map(item => `
         <div class="template-card bg-[#181f26] border border-[#26313d] rounded-2xl overflow-hidden card-glow transition-all duration-300 flex flex-col justify-between" data-category="${item.cat}" data-title="${item.name.toLowerCase()} ${item.tf.toLowerCase()}">
           <div>
-            <div class="relative overflow-hidden group bg-stone-900 border-b border-[#26313d]">
+            <!-- Clickable thumbnail to open Quick View -->
+            <div class="relative overflow-hidden group bg-stone-900 border-b border-[#26313d] cursor-pointer" onclick="openLivePreview('${item.id}', '${item.name}')">
               <img src="screenshots/${item.id}.jpg" alt="${item.name}" class="w-full h-56 object-cover object-top group-hover:scale-105 transition-transform duration-500">
               <span class="absolute top-3 left-3 bg-[#0b0e13]/90 backdrop-blur-md text-[#FF4A52] text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider border border-[#FF4A52]/30">${item.badge}</span>
-              <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-3">
-                <button onclick="openLivePreview('${item.id}', '${item.name}')" class="bg-white text-stone-900 text-xs font-bold px-4 py-2 rounded-full shadow hover:bg-stone-100 transition">
+              <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-3">
+                <button onclick="event.stopPropagation(); openLivePreview('${item.id}', '${item.name}')" class="bg-white text-stone-900 text-xs font-bold px-4 py-2 rounded-full shadow hover:bg-stone-100 transition">
                   <i class="fa-solid fa-eye mr-1.5"></i> Quick View
                 </button>
-                <a href="${item.id}/index.html" target="_blank" class="bg-[#FF4A52] text-white text-xs font-bold px-4 py-2 rounded-full shadow hover:bg-[#e83e46] transition">
+                <a href="${item.id}/index.html" target="_blank" onclick="event.stopPropagation()" class="bg-[#FF4A52] text-white text-xs font-bold px-4 py-2 rounded-full shadow hover:bg-[#e83e46] transition">
                   <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Buka Tab
                 </a>
               </div>
             </div>
             <div class="p-6">
               <span class="text-[10px] font-bold text-stone-400 block mb-1 uppercase tracking-wider">${item.tf}</span>
-              <h3 class="text-xl font-bold text-white mb-2">${item.name}</h3>
+              <h3 class="text-xl font-bold text-white mb-2 cursor-pointer hover:text-[#FF4A52] transition" onclick="openLivePreview('${item.id}', '${item.name}')">${item.name}</h3>
               <p class="text-xs text-stone-400 leading-relaxed mb-4">${item.desc}</p>
             </div>
           </div>
           <div class="p-6 pt-0 flex items-center justify-between border-t border-[#26313d] mt-auto">
-            <a href="${item.id}/index.html" target="_blank" class="text-xs font-bold text-white hover:text-[#FF4A52] transition flex items-center">
-              <span>Buka Landing Page</span>
-              <i class="fa-solid fa-arrow-right text-[10px] ml-1.5"></i>
-            </a>
+            <button onclick="openLivePreview('${item.id}', '${item.name}')" class="text-xs font-bold text-white hover:text-[#FF4A52] transition flex items-center">
+              <span>Quick View</span>
+              <i class="fa-solid fa-eye text-[10px] ml-1.5 text-[#FF4A52]"></i>
+            </button>
             <button onclick="orderViaWa('${item.name}')" class="text-xs font-bold text-[#25D366] hover:underline flex items-center">
               <i class="fa-brands fa-whatsapp text-sm mr-1"></i> Beli Full
             </button>
@@ -281,9 +319,12 @@
     const modalPreviewTitle = document.getElementById('modalPreviewTitle');
     const modalExternalLink = document.getElementById('modalExternalLink');
     const previewFrameWrapper = document.getElementById('previewFrameWrapper');
+    const iframeLoader = document.getElementById('iframeLoader');
 
     function openLivePreview(folder, title) {
       const url = `${folder}/index.html`;
+      iframeLoader.style.opacity = '1';
+      iframeLoader.style.display = 'flex';
       previewIframe.src = url;
       modalPreviewTitle.textContent = title;
       modalExternalLink.href = url;
@@ -299,27 +340,37 @@
       document.body.style.overflow = '';
     }
 
+    function hideIframeLoader() {
+      if (iframeLoader) {
+        iframeLoader.style.opacity = '0';
+        setTimeout(() => iframeLoader.style.display = 'none', 300);
+      }
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'previewBackdropArea') {
+        closeLivePreview();
+      }
+    }
+
     function setPreviewViewport(mode) {
       const btnD = document.getElementById('vpDesktop');
       const btnT = document.getElementById('vpTablet');
       const btnM = document.getElementById('vpMobile');
 
       [btnD, btnT, btnM].forEach(b => {
-        b.className = 'px-3 py-1 text-xs font-semibold rounded text-stone-400 hover:text-white transition';
+        b.className = 'px-3 py-1.5 text-xs font-semibold rounded-lg text-stone-400 hover:text-white transition flex items-center space-x-1.5';
       });
 
       if (mode === 'desktop') {
-        previewFrameWrapper.style.maxWidth = '100%';
-        previewFrameWrapper.style.height = '100%';
-        btnD.className = 'px-3 py-1 text-xs font-semibold rounded bg-[#FF4A52] text-white transition';
+        previewFrameWrapper.className = 'viewport-desktop transition-all duration-300 overflow-hidden shadow-2xl bg-white relative cursor-default';
+        btnD.className = 'px-3 py-1.5 text-xs font-semibold rounded-lg bg-[#FF4A52] text-white transition flex items-center space-x-1.5';
       } else if (mode === 'tablet') {
-        previewFrameWrapper.style.maxWidth = '768px';
-        previewFrameWrapper.style.height = '95%';
-        btnT.className = 'px-3 py-1 text-xs font-semibold rounded bg-[#FF4A52] text-white transition';
+        previewFrameWrapper.className = 'viewport-tablet transition-all duration-300 overflow-hidden shadow-2xl bg-white relative cursor-default';
+        btnT.className = 'px-3 py-1.5 text-xs font-semibold rounded-lg bg-[#FF4A52] text-white transition flex items-center space-x-1.5';
       } else if (mode === 'mobile') {
-        previewFrameWrapper.style.maxWidth = '390px';
-        previewFrameWrapper.style.height = '844px';
-        btnM.className = 'px-3 py-1 text-xs font-semibold rounded bg-[#FF4A52] text-white transition';
+        previewFrameWrapper.className = 'viewport-mobile transition-all duration-300 overflow-hidden shadow-2xl bg-white relative cursor-default';
+        btnM.className = 'px-3 py-1.5 text-xs font-semibold rounded-lg bg-[#FF4A52] text-white transition flex items-center space-x-1.5';
       }
     }
 
