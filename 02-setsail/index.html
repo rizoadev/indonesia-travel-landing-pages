@@ -5,524 +5,341 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SetSail Bali – Paket Wisata Summer & Nusa Penida</title>
 
-  <!-- Google Fonts & Font Awesome -->
+  <!-- Google Fonts: Poppins, Caveat (script) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', '"Poppins"', 'sans-serif'],
-            serif: ['"DM Serif Display"', 'serif'],
-          },
-          colors: {
-            theme: {
-              DEFAULT: '#00D690',
-              dark: '#00b377',
-              accent: '#FFA900',
-            }
-          }
-        }
-      }
-    }
-  </script>
 
   <style>
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #333333;
-      background-color: #ffffff;
-      -webkit-font-smoothing: antialiased;
-    }
-    .badge-price {
-      background-color: #00D690;
-      color: #ffffff;
-      font-weight: 700;
-      padding: 4px 12px;
-      font-size: 13px;
-      border-radius: 4px;
-    }
+    body { font-family: 'Poppins', sans-serif; color: #505050; background-color: #ffffff; }
+    .font-script { font-family: 'Caveat', cursive; }
   </style>
 </head>
-<body class="selection:bg-[#00D690] selection:text-white">
+<body class="selection:bg-[#14b8a6] selection:text-white">
 
-  <!-- ================= HEADER ================= -->
-  <header class="w-full bg-white/95 text-stone-900 sticky top-0 z-40 transition-shadow shadow-sm">
-    <div class="max-w-[1360px] mx-auto px-6 h-20 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="#" class="flex items-center space-x-2.5 group">
-        <span class="w-9 h-9 rounded-xl bg-[#00D690] flex items-center justify-center text-white text-base shadow-md group-hover:scale-105 transition-transform">
-          <i class="fa-solid fa-compass"></i>
-        </span>
-        <div class="flex flex-col leading-none">
-          <span class="font-extrabold text-xl tracking-tight">SetSail</span>
-          <span class="text-[10px] text-stone-400 font-semibold uppercase tracking-wider">Bali & Nusa Penida</span>
-        </div>
+  <!-- ================= TOP BAR (BLACK) ================= -->
+  <div class="w-full bg-[#1b1d1f] text-white/70 text-[11px] py-2.5 px-6 border-b border-white/5">
+    <div class="max-w-[1360px] mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-6">
+        <span><i class="fa-regular fa-envelope text-[#14b8a6] mr-2"></i>info@setsail-bali.id</span>
+        <span><i class="fa-solid fa-phone text-[#14b8a6] mr-2"></i>+62 878-8127-2246</span>
+        <span class="hidden md:inline"><i class="fa-solid fa-location-dot text-[#14b8a6] mr-2"></i>Sanur Beach, Denpasar, Bali</span>
+      </div>
+      <div class="flex items-center space-x-4 text-white/80">
+        <a href="#" class="hover:text-[#14b8a6]"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" class="hover:text-[#14b8a6]"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="hover:text-[#14b8a6]"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= MAIN HEADER ================= -->
+  <header class="w-full bg-white sticky top-0 z-40 border-b border-stone-100 shadow-sm">
+    <div class="max-w-[1360px] mx-auto px-6 h-24 flex items-center justify-between">
+      <!-- Yellow lowercase script logo -->
+      <a href="#" class="font-extrabold text-3xl tracking-tight text-[#f4a836] lowercase font-sans">
+        setsail<span class="text-[#14b8a6]">.</span>
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center space-x-8 text-xs font-bold uppercase tracking-wider">
-        <a href="#" class="hover:text-[#00D690] transition">Beranda</a>
-        <a href="#destinations" class="hover:text-[#00D690] transition">Destinasi</a>
-        <a href="#trips" class="hover:text-[#00D690] transition">Paket Tour</a>
-        <a href="#why-us" class="hover:text-[#00D690] transition">Fasilitas</a>
-        <a href="#articles" class="hover:text-[#00D690] transition">Tips Wisata</a>
-        <a href="#contact" class="hover:text-[#00D690] transition">Kontak</a>
+      <nav class="hidden lg:flex items-center space-x-9 text-[13px] font-semibold text-stone-800">
+        <a href="#" class="text-[#14b8a6] transition">Home</a>
+        <a href="#destinations" class="hover:text-[#14b8a6] transition">Destinations</a>
+        <a href="#tours" class="hover:text-[#14b8a6] transition">Tours</a>
+        <a href="#holiday" class="hover:text-[#14b8a6] transition">Holidays</a>
+        <a href="#footer" class="hover:text-[#14b8a6] transition">Contact</a>
       </nav>
 
-      <!-- Action: WA Consultation (NO SHOP ICON) -->
       <div class="flex items-center space-x-4">
-        <a href="https://wa.me/6287881272246?text=Halo%20SetSail%2C%20saya%20tertarik%20booking%20paket%20wisata." target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center space-x-2 bg-[#00D690] hover:bg-[#00b377] text-white text-xs font-bold px-5 py-2.5 rounded-full transition shadow">
+        <a href="https://wa.me/6287881272246?text=Halo%20SetSail%2C%20saya%20tertarik%20paket%20wisata%20Bali." target="_blank" class="hidden sm:inline-flex items-center space-x-2 bg-[#14b8a6] hover:bg-[#0d9488] text-white text-xs font-bold px-6 py-3 rounded-full transition shadow-md">
           <i class="fa-brands fa-whatsapp text-sm"></i>
-          <span>Konsultasi Trip</span>
+          <span>Konsultasi WA</span>
         </a>
-        <button id="burgerBtn" class="hover:text-[#00D690] p-1 focus:outline-none lg:hidden text-2xl" aria-label="Menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
+        <button id="burgerBtn" class="text-stone-800 hover:text-[#14b8a6] p-1 lg:hidden text-2xl focus:outline-none"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
   </header>
 
-  <!-- ================= HERO WITH SEARCH ================= -->
-  <section class="relative w-full min-h-[640px] lg:min-h-[760px] bg-cover bg-center flex items-center justify-center text-white px-6 overflow-hidden" style="background-image: url('images/hero.jpg');">
-    <div class="absolute inset-0 bg-black/50"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+  <!-- ================= HERO TURQUOISE SLIDER ================= -->
+  <section class="relative w-full h-[580px] lg:h-[680px] bg-[#29c5c5] flex flex-col justify-between overflow-hidden">
+    <!-- Slider Left/Right circle controls -->
+    <button onclick="showToast('Menampilkan slide berikutnya...')" class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 hover:bg-white text-[#29c5c5] flex items-center justify-center text-lg z-20 shadow-md transition">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button onclick="showToast('Menampilkan slide berikutnya...')" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 hover:bg-white text-[#29c5c5] flex items-center justify-center text-lg z-20 shadow-md transition">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
 
-    <div class="max-w-5xl w-full mx-auto text-center relative z-10 py-16">
-      <span class="inline-block bg-[#00D690] text-white text-[10px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full mb-4 shadow">
-        ⭐ Destinasi Pilihan Indonesia
-      </span>
-      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] mb-4 drop-shadow-md">
-        Where Would You Like To Go?
+    <!-- Center Hero Photo or Graphic -->
+    <div class="absolute inset-0 bg-cover bg-center opacity-85" style="background-image: url('images/hero.jpg');"></div>
+    <div class="absolute inset-0 bg-[#29c5c5]/40 mix-blend-multiply"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10 pt-28 px-6 text-white">
+      <span class="font-script text-4xl text-[#ffe17d] block mb-2">Summer Escapes</span>
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight mb-4 drop-shadow">
+        Bali & Nusa Penida
       </h1>
-      <p class="text-sm sm:text-lg text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow">
-        Jelajahi pantai pasir putih Nusa Penida, beach club tropis Canggu, dan keajaiban alam tersembunyi Pulau Dewata.
+      <p class="text-sm sm:text-base text-white/95 max-w-xl mx-auto drop-shadow">
+        Jelajahi surga pantai tebing Kelingking, snorkeling bersama pari manta, dan bersantai di beach club tropis terbaik.
       </p>
+    </div>
 
-      <!-- Search Filter Box -->
-      <div class="bg-white p-3 sm:p-4 rounded-2xl shadow-2xl text-left max-w-4xl mx-auto text-stone-800">
-        <form onsubmit="handleHeroSearch(event)" class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
-          <div class="sm:col-span-4 relative">
-            <input type="text" id="searchKeyword" placeholder="Cari nama objek / kota..." class="w-full bg-stone-50 border border-stone-200 text-xs sm:text-sm py-3 pl-9 pr-3 rounded-xl outline-none focus:border-[#00D690] transition">
-            <i class="fa-solid fa-location-dot absolute left-3 top-3.5 text-stone-400 text-sm"></i>
-          </div>
-
-          <div class="sm:col-span-3 relative">
-            <select id="searchDuration" class="w-full bg-stone-50 border border-stone-200 text-stone-700 text-xs sm:text-sm py-3 pl-9 pr-6 rounded-xl outline-none focus:border-[#00D690] appearance-none cursor-pointer">
-              <option value="">Semua Durasi</option>
-              <option value="1">1 Hari (Day Trip)</option>
-              <option value="2">2 Hari 1 Malam</option>
-              <option value="3">3 Hari 2 Malam</option>
-              <option value="4">4 Hari atau Lebih</option>
-            </select>
-            <i class="fa-regular fa-clock absolute left-3 top-3.5 text-stone-400 text-sm pointer-events-none"></i>
-            <i class="fa-solid fa-chevron-down absolute right-3 top-3.5 text-stone-400 text-xs pointer-events-none"></i>
-          </div>
-
-          <div class="sm:col-span-3 relative">
-            <select id="searchType" class="w-full bg-stone-50 border border-stone-200 text-stone-700 text-xs sm:text-sm py-3 pl-9 pr-6 rounded-xl outline-none focus:border-[#00D690] appearance-none cursor-pointer">
-              <option value="all">Semua Tipe Trip</option>
-              <option value="open">Open Trip (Gabungan)</option>
-              <option value="private">Private Tour Eksklusif</option>
-            </select>
-            <i class="fa-solid fa-users absolute left-3 top-3.5 text-stone-400 text-sm pointer-events-none"></i>
-            <i class="fa-solid fa-chevron-down absolute right-3 top-3.5 text-stone-400 text-xs pointer-events-none"></i>
-          </div>
-
-          <div class="sm:col-span-2">
-            <button type="submit" class="w-full bg-[#00D690] hover:bg-[#00b377] text-white text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition shadow flex items-center justify-center space-x-1.5">
-              <span>Cari Paket</span>
-            </button>
-          </div>
-        </form>
+    <!-- DOCKED SEARCH BAR AT BOTTOM -->
+    <div class="relative z-20 max-w-[1240px] w-full mx-auto px-6 -mb-6">
+      <div class="bg-white rounded-xl shadow-xl p-3 flex flex-col md:flex-row items-center border border-stone-100">
+        <div class="flex-1 px-4 py-2 border-b md:border-b-0 md:border-r border-stone-200 w-full flex items-center space-x-3">
+          <i class="fa-solid fa-compass text-[#29c5c5]"></i>
+          <input type="text" id="searchKeyword" placeholder="Where to? (Kelingking, Ubud...)" class="w-full text-xs text-stone-700 outline-none">
+        </div>
+        <div class="flex-1 px-4 py-2 border-b md:border-b-0 md:border-r border-stone-200 w-full flex items-center space-x-3">
+          <i class="fa-regular fa-calendar text-[#29c5c5]"></i>
+          <select class="w-full text-xs text-stone-700 outline-none bg-transparent cursor-pointer">
+            <option>Semua Bulan</option>
+            <option>Januari - Maret</option>
+            <option>April - Juni</option>
+            <option>Juli - September</option>
+          </select>
+        </div>
+        <div class="flex-1 px-4 py-2 border-b md:border-b-0 md:border-r border-stone-200 w-full flex items-center space-x-3">
+          <i class="fa-solid fa-thumbtack text-[#29c5c5]"></i>
+          <select class="w-full text-xs text-stone-700 outline-none bg-transparent cursor-pointer">
+            <option>Travel Type</option>
+            <option>Island Hopping</option>
+            <option>Snorkeling & Diving</option>
+            <option>Culture & Waterfall</option>
+          </select>
+        </div>
+        <div class="w-full md:w-auto p-1">
+          <button onclick="handleSearch()" class="w-full md:w-auto bg-[#29c5c5] hover:bg-[#20b2b2] text-white text-xs font-bold uppercase tracking-wider px-8 py-3.5 rounded-lg transition shadow">
+            FIND NOW
+          </button>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= POPULAR DESTINATIONS ================= -->
-  <section id="destinations" class="w-full py-24 bg-white">
+  <!-- ================= CHOOSE YOUR PERFECT HOLIDAY COLLAGE (SETSAIL SIGNATURE) ================= -->
+  <section id="holiday" class="w-full pt-28 pb-20 bg-white">
     <div class="max-w-[1360px] mx-auto px-6">
       <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1C1C] tracking-tight mb-3">
-          Destinasi Favorit Bali & Sekitarnya
+        <span class="font-script text-3xl text-[#29c5c5] block mb-1">Choose Your</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-stone-900 tracking-tight mb-4">
+          Perfect Holiday
         </h2>
-        <p class="text-stone-500 text-sm sm:text-base">
-          Tempat wisata favorit yang wajib Anda masukkan ke dalam daftar liburan berikutnya
+        <p class="text-xs sm:text-sm text-stone-400 max-w-lg mx-auto">
+          Pilihan destinasi liburan favorit di Bali dan kepulauan sekitarnya dengan kurasi terbaik
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Destination cards -->
-        <div class="relative rounded-2xl overflow-hidden h-96 group cursor-pointer shadow-md" onclick="quickFilterDest('Uluwatu Temple')">
-          <img src="images/dest-1.jpg" alt="Uluwatu Temple" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
-          <div class="absolute bottom-6 left-6 right-6">
-            <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-[#00D690] transition">Uluwatu Temple</h3>
-            <span class="text-xs text-stone-300">Sunset Cliff & Tari Kecak</span>
+      <!-- SetSail Signature Collage Grid -->
+      <div class="space-y-6">
+        <!-- ROW 1: Circle Left + 3 Rectangular Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+          <!-- Circle 1: Nusa Penida -->
+          <div class="relative w-full aspect-square rounded-full overflow-hidden shadow-lg group cursor-pointer" onclick="openTripModal('penida-barat')">
+            <img src="images/dest-1.jpg" alt="Nusa Penida" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-black/35 flex items-center justify-center">
+              <span class="font-script text-5xl text-white drop-shadow-md">Nusa Penida</span>
+            </div>
+          </div>
+
+          <!-- Card 1 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md group cursor-pointer" onclick="openTripModal('penida-barat')">
+            <div class="relative h-60 overflow-hidden">
+              <img src="images/trip-1.jpg" alt="Kelingking Beach" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute bottom-0 inset-x-0 bg-stone-900/80 backdrop-blur-sm text-white px-4 py-2 flex items-center justify-between text-xs">
+                <span class="font-bold">Kelingking</span>
+                <span class="text-[#f4a836]">★ 5.0 Good · Rp 350.000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md group cursor-pointer" onclick="openTripModal('penida-timur')">
+            <div class="relative h-60 overflow-hidden">
+              <img src="images/trip-2.jpg" alt="Diamond Beach" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute bottom-0 inset-x-0 bg-stone-900/80 backdrop-blur-sm text-white px-4 py-2 flex items-center justify-between text-xs">
+                <span class="font-bold">Diamond Beach</span>
+                <span class="text-[#f4a836]">★ 4.9 Superb · Rp 850.000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md group cursor-pointer" onclick="openTripModal('penida-timur')">
+            <div class="relative h-60 overflow-hidden">
+              <img src="images/dest-2.jpg" alt="Manta Point" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute bottom-0 inset-x-0 bg-stone-900/80 backdrop-blur-sm text-white px-4 py-2 flex items-center justify-between text-xs">
+                <span class="font-bold">Manta Bay</span>
+                <span class="text-[#f4a836]">★ 5.0 Superb · Rp 600.000</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="relative rounded-2xl overflow-hidden h-96 group cursor-pointer shadow-md" onclick="quickFilterDest('Canggu Beach Club')">
-          <img src="images/dest-2.jpg" alt="Canggu Beach Club" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
-          <div class="absolute bottom-6 left-6 right-6">
-            <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-[#00D690] transition">Canggu Beach Club</h3>
-            <span class="text-xs text-stone-300">Sunset Chill & Surf Vibe</span>
+        <!-- ROW 2: 3 Rectangular Cards + Circle Right -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+          <!-- Card 4 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md group cursor-pointer" onclick="openTripModal('ubud-waterfall')">
+            <div class="relative h-60 overflow-hidden">
+              <img src="images/trip-3.jpg" alt="Ubud Rice Terrace" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute bottom-0 inset-x-0 bg-stone-900/80 backdrop-blur-sm text-white px-4 py-2 flex items-center justify-between text-xs">
+                <span class="font-bold">Tegalalang</span>
+                <span class="text-[#f4a836]">★ 4.8 Good · Rp 450.000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md group cursor-pointer" onclick="openTripModal('ubud-waterfall')">
+            <div class="relative h-60 overflow-hidden">
+              <img src="images/dest-3.jpg" alt="Tibumana Waterfall" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute bottom-0 inset-x-0 bg-stone-900/80 backdrop-blur-sm text-white px-4 py-2 flex items-center justify-between text-xs">
+                <span class="font-bold">Tibumana</span>
+                <span class="text-[#f4a836]">★ 4.9 Superb · Rp 400.000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md group cursor-pointer" onclick="openTripModal('ubud-waterfall')">
+            <div class="relative h-60 overflow-hidden">
+              <img src="images/banner.jpg" alt="Uluwatu Sunset" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+              <div class="absolute bottom-0 inset-x-0 bg-stone-900/80 backdrop-blur-sm text-white px-4 py-2 flex items-center justify-between text-xs">
+                <span class="font-bold">Uluwatu Cliff</span>
+                <span class="text-[#f4a836]">★ 5.0 Superb · Rp 550.000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Circle 2: Bali Mainland -->
+          <div class="relative w-full aspect-square rounded-full overflow-hidden shadow-lg group cursor-pointer" onclick="openTripModal('ubud-waterfall')">
+            <img src="images/hero.jpg" alt="Bali Mainland" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="absolute inset-0 bg-black/35 flex items-center justify-center">
+              <span class="font-script text-5xl text-white drop-shadow-md">Bali Paradise</span>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="relative rounded-2xl overflow-hidden h-96 group cursor-pointer shadow-md" onclick="quickFilterDest('Tibumana Waterfall')">
-          <img src="images/dest-3.jpg" alt="Tibumana Waterfall" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
-          <div class="absolute bottom-6 left-6 right-6">
-            <h3 class="text-2xl font-bold text-white mb-1 group-hover:text-[#00D690] transition">Tibumana Waterfall</h3>
-            <span class="text-xs text-stone-300">Oase Sejuk Tersembunyi Ubud</span>
-          </div>
+      <!-- Stamp Badge: Greetings from Bali -->
+      <div class="text-center pt-16">
+        <div class="inline-flex items-center space-x-3 bg-stone-50 border border-stone-200 px-6 py-3 rounded-full shadow-sm">
+          <i class="fa-solid fa-stamp text-[#f4a836] text-xl"></i>
+          <span class="font-script text-2xl text-stone-700">Greetings from Bali Island</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= TOUR PACKAGES ================= -->
-  <section id="trips" class="w-full py-24 bg-stone-50 border-y border-stone-200">
-    <div class="max-w-[1360px] mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1C1C] tracking-tight mb-3">
-          Paket Tour Terlaris
-        </h2>
-        <p class="text-stone-500 text-sm sm:text-base">
-          Fasilitas lengkap, jadwal pasti berangkat, dan jaminan harga terbaik tanpa biaya tersembunyi
-        </p>
-      </div>
-
-      <div id="tripGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Trip 1 -->
-        <div class="trip-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-stone-200" data-destination="One Day Trip Nusa Penida Barat">
-          <div>
-            <div class="relative h-64 overflow-hidden bg-stone-100 cursor-pointer" onclick="openTripModal('trip-0')">
-              <img src="images/trip-1.jpg" alt="One Day Trip Nusa Penida Barat" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-              <span class="badge-price absolute bottom-4 left-4">Rp 350.000</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-[#1C1C1C] mb-2 hover:text-[#00D690] transition cursor-pointer" onclick="openTripModal('trip-0')">
-                One Day Trip Nusa Penida Barat
-              </h3>
-              <p class="text-xs text-[#00D690] font-semibold mb-4">Kelingking Beach · Broken Beach · Angel's Billabong · Crystal Bay</p>
-              <div class="flex items-center justify-between text-xs text-stone-500 pt-4 border-t border-stone-100">
-                <div class="flex items-center space-x-1 text-[#F59E0B]">
-                  <i class="fa-solid fa-star"></i>
-                  <span class="text-stone-600 font-semibold ml-1">4.9 (210 Ulasan)</span>
-                </div>
-                <div class="flex items-center space-x-1 text-stone-500">
-                  <i class="fa-regular fa-clock"></i>
-                  <span>1 Hari Penuh</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="p-6 pt-0">
-            <button onclick="openTripModal('trip-0')" class="w-full bg-[#1C1C1C] hover:bg-[#00D690] text-white text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition shadow">
-              Lihat Itinerary & Pesan
-            </button>
-          </div>
-        </div>
-
-        <!-- Trip 2 -->
-        <div class="trip-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-stone-200" data-destination="Nusa Penida Timur + Snorkeling Manta 2D1N">
-          <div>
-            <div class="relative h-64 overflow-hidden bg-stone-100 cursor-pointer" onclick="openTripModal('trip-1')">
-              <img src="images/trip-2.jpg" alt="Nusa Penida Timur + Snorkeling Manta 2D1N" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-              <span class="badge-price absolute bottom-4 left-4">Rp 850.000</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-[#1C1C1C] mb-2 hover:text-[#00D690] transition cursor-pointer" onclick="openTripModal('trip-1')">
-                Nusa Penida Timur + Snorkeling Manta 2D1N
-              </h3>
-              <p class="text-xs text-[#00D690] font-semibold mb-4">Diamond Beach · Atuh Beach · Rumah Pohon Molenteng · Manta Bay</p>
-              <div class="flex items-center justify-between text-xs text-stone-500 pt-4 border-t border-stone-100">
-                <div class="flex items-center space-x-1 text-[#F59E0B]">
-                  <i class="fa-solid fa-star"></i>
-                  <span class="text-stone-600 font-semibold ml-1">5.0 (142 Ulasan)</span>
-                </div>
-                <div class="flex items-center space-x-1 text-stone-500">
-                  <i class="fa-regular fa-clock"></i>
-                  <span>2 Hari 1 Malam</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="p-6 pt-0">
-            <button onclick="openTripModal('trip-1')" class="w-full bg-[#1C1C1C] hover:bg-[#00D690] text-white text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition shadow">
-              Lihat Itinerary & Pesan
-            </button>
-          </div>
-        </div>
-
-        <!-- Trip 3 -->
-        <div class="trip-card bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-stone-200" data-destination="Ubud Cultural & Nature Waterfall 1D">
-          <div>
-            <div class="relative h-64 overflow-hidden bg-stone-100 cursor-pointer" onclick="openTripModal('trip-2')">
-              <img src="images/trip-3.jpg" alt="Ubud Cultural & Nature Waterfall 1D" class="w-full h-full object-cover hover:scale-105 transition duration-500">
-              <span class="badge-price absolute bottom-4 left-4">Rp 450.000</span>
-            </div>
-            <div class="p-6">
-              <h3 class="text-xl font-bold text-[#1C1C1C] mb-2 hover:text-[#00D690] transition cursor-pointer" onclick="openTripModal('trip-2')">
-                Ubud Cultural & Nature Waterfall 1D
-              </h3>
-              <p class="text-xs text-[#00D690] font-semibold mb-4">Tegalalang Rice Terrace · Alas Harum Swing · Air Terjun Tibumana</p>
-              <div class="flex items-center justify-between text-xs text-stone-500 pt-4 border-t border-stone-100">
-                <div class="flex items-center space-x-1 text-[#F59E0B]">
-                  <i class="fa-solid fa-star"></i>
-                  <span class="text-stone-600 font-semibold ml-1">4.8 (88 Ulasan)</span>
-                </div>
-                <div class="flex items-center space-x-1 text-stone-500">
-                  <i class="fa-regular fa-clock"></i>
-                  <span>1 Hari Penuh</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="p-6 pt-0">
-            <button onclick="openTripModal('trip-2')" class="w-full bg-[#1C1C1C] hover:bg-[#00D690] text-white text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition shadow">
-              Lihat Itinerary & Pesan
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= WHY CHOOSE US ================= -->
-  <section id="why-us" class="w-full py-24 bg-white">
-    <div class="max-w-[1360px] mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1C1C] tracking-tight mb-3">
-          Standar Pelayanan SetSail
-        </h2>
-        <p class="text-stone-500 text-sm sm:text-base">
-          Pengalaman berwisata aman, terpercaya, dan tak terlupakan untuk Anda dan rombongan
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-        <div class="flex flex-col items-center">
-          <div class="w-20 h-20 rounded-2xl bg-stone-100 flex items-center justify-center text-[#00D690] text-3xl mb-6 shadow-sm">
-            <i class="fa-solid fa-shield-halved"></i>
-          </div>
-          <h3 class="text-xl font-bold text-[#1C1C1C] mb-3">Operator Resmi Berizin</h3>
-          <p class="text-xs sm:text-sm text-stone-500 leading-relaxed max-w-sm">
-            Terdaftar resmi dengan asuransi perjalanan, legalitas lengkap, dan SOP keselamatan bertaraf nasional.
-          </p>
-        </div>
-
-        <div class="flex flex-col items-center">
-          <div class="w-20 h-20 rounded-2xl bg-stone-100 flex items-center justify-center text-[#00D690] text-3xl mb-6 shadow-sm">
-            <i class="fa-solid fa-camera"></i>
-          </div>
-          <h3 class="text-xl font-bold text-[#1C1C1C] mb-3">Dokumentasi Profesional</h3>
-          <p class="text-xs sm:text-sm text-stone-500 leading-relaxed max-w-sm">
-            Setiap momen istimewa Anda diabadikan dengan kamera mirrorless dan video aerial drone secara gratis.
-          </p>
-        </div>
-
-        <div class="flex flex-col items-center">
-          <div class="w-20 h-20 rounded-2xl bg-stone-100 flex items-center justify-center text-[#00D690] text-3xl mb-6 shadow-sm">
-            <i class="fa-solid fa-utensils"></i>
-          </div>
-          <h3 class="text-xl font-bold text-[#1C1C1C] mb-3">Kuliner Khas & Segar</h3>
-          <p class="text-xs sm:text-sm text-stone-500 leading-relaxed max-w-sm">
-            Pilihan hidangan halal, lezat, dan otentik khas daerah setempat yang dimasak langsung oleh chef dan mitra lokal.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= VIDEO BANNER ================= -->
-  <section class="relative w-full h-[450px] bg-cover bg-center flex items-center justify-center text-center overflow-hidden" style="background-image: url('images/banner.jpg');">
+  <!-- ================= FULLWIDTH VIDEO / PARALLAX BANNER ================= -->
+  <section class="relative w-full h-[460px] bg-cover bg-center flex items-center justify-center text-center overflow-hidden" style="background-image: url('images/banner.jpg');">
     <div class="absolute inset-0 bg-black/45"></div>
 
-    <div class="relative z-10 px-6 max-w-3xl">
-      <button onclick="openVideoModal()" class="w-20 h-20 rounded-full bg-white text-[#00D690] flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform mb-6 mx-auto pl-1" aria-label="Play video">
+    <div class="relative z-10 px-6 max-w-2xl text-white">
+      <button onclick="openVideoModal()" class="w-20 h-20 rounded-full bg-white text-[#29c5c5] flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition-transform mb-6 mx-auto pl-1" aria-label="Play video">
         <i class="fa-solid fa-play"></i>
       </button>
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4 drop-shadow">
-        Rasakan Keajaiban Nusantara
+      <span class="font-script text-3xl text-[#ffe17d] block mb-2">Go & Discover</span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 drop-shadow">
+        Breathe The Ocean Air
       </h2>
-      <p class="text-sm sm:text-base text-white/90 max-w-xl mx-auto drop-shadow">
-        Saksikan cuplikan video perjalanan nyata bersama para traveler dan rasakan sensasinya.
+      <p class="text-xs sm:text-sm text-white/90 max-w-lg mx-auto">
+        Setiap pelayaran bersama SetSail Bali didampingi kru profesional untuk menjamin kenyamanan Anda.
       </p>
-    </div>
-  </section>
-
-  <!-- ================= ARTICLES ================= -->
-  <section id="articles" class="w-full py-24 bg-white">
-    <div class="max-w-[1360px] mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl sm:text-5xl font-extrabold text-[#1C1C1C] tracking-tight mb-3">
-          Artikel & Tips Perjalanan
-        </h2>
-        <p class="text-stone-500 text-sm sm:text-base">
-          Informasi terkini dan tips berguna untuk memaksimalkan pengalaman liburan Anda
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-100 hover:border-stone-300 transition">
-          <span class="text-xs text-[#00D690] font-bold block mb-2">15 Oktober 2026</span>
-          <h3 class="text-lg font-bold text-[#1C1C1C] mb-2">5 Beach Club Terbaik di Canggu & Seminyak</h3>
-          <p class="text-xs text-stone-500 leading-relaxed">Nikmati alunan musik tropical house dan matahari terbenam terbaik di pesisir barat Bali.</p>
-        </div>
-
-        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-100 hover:border-stone-300 transition">
-          <span class="text-xs text-[#00D690] font-bold block mb-2">8 Oktober 2026</span>
-          <h3 class="text-lg font-bold text-[#1C1C1C] mb-2">Panduan Menyeberang ke Nusa Penida dari Sanur</h3>
-          <p class="text-xs text-stone-500 leading-relaxed">Dermaga baru Pelabuhan Sanur kini sangat nyaman tanpa perlu basah-basahan naik kapal.</p>
-        </div>
-
-        <div class="p-6 bg-stone-50 rounded-2xl border border-stone-100 hover:border-stone-300 transition">
-          <span class="text-xs text-[#00D690] font-bold block mb-2">1 Oktober 2026</span>
-          <h3 class="text-lg font-bold text-[#1C1C1C] mb-2">Waktu Terbaik Melihat Pari Manta di Manta Bay</h3>
-          <p class="text-xs text-stone-500 leading-relaxed">Bulan Mei hingga November adalah waktu favorit di mana kawanan pari manta sering mencari makan.</p>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- ================= FOOTER ================= -->
-  <footer id="contact" class="w-full bg-[#1C1C1C] text-white/70 pt-20 pb-10 text-xs">
+  <footer id="footer" class="w-full bg-[#1b1d1f] text-white/70 pt-20 pb-10 text-xs">
     <div class="max-w-[1360px] mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-16 border-b border-white/10">
         <div>
-          <div class="flex items-center space-x-2 text-white mb-4">
-            <span class="w-8 h-8 rounded-lg bg-[#00D690] flex items-center justify-center text-white text-base">
-              <i class="fa-solid fa-compass"></i>
-            </span>
-            <span class="font-bold text-xl tracking-tight">SetSail</span>
-          </div>
+          <span class="font-extrabold text-2xl tracking-tight text-[#f4a836] lowercase font-sans block mb-4">
+            setsail<span class="text-[#14b8a6]">.</span>
+          </span>
           <p class="leading-relaxed mb-4 text-white/60">
-            Penyedia jasa perjalanan wisata terpercaya dengan paket liburan terkurasi di seluruh nusantara.
+            Spesialis paket tour pulau Bali, penyeberangan speedboat Nusa Penida, dan persewaan mobil wisata privat.
           </p>
           <div class="space-y-2 text-white/80">
-            <div><i class="fa-solid fa-location-dot text-[#00D690] mr-2"></i> Jl. Danau Tamblingan No. 42, Sanur, Denpasar Selatan, Bali 80228</div>
-            <div><i class="fa-solid fa-phone text-[#00D690] mr-2"></i> +62 878-8127-2246</div>
-            <div><i class="fa-solid fa-envelope text-[#00D690] mr-2"></i> booking@setsail-bali.id</div>
+            <div><i class="fa-solid fa-location-dot text-[#14b8a6] mr-2"></i> Sanur Beach, Denpasar, Bali</div>
+            <div><i class="fa-solid fa-phone text-[#14b8a6] mr-2"></i> +62 878-8127-2246</div>
+            <div><i class="fa-solid fa-envelope text-[#14b8a6] mr-2"></i> info@setsail-bali.id</div>
           </div>
         </div>
 
         <div>
-          <h4 class="font-bold text-white uppercase tracking-wider mb-4 text-sm">Destinasi Populer</h4>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-4 text-sm">Destinasi Bali</h4>
           <ul class="space-y-2 text-white/60">
-            <li><a href="#" class="hover:text-white transition">Uluwatu Temple</a></li>
-            <li><a href="#" class="hover:text-white transition">Canggu Beach Club</a></li>
-            <li><a href="#" class="hover:text-white transition">Tibumana Waterfall</a></li>
+            <li><a href="#" class="hover:text-white transition">Nusa Penida One Day</a></li>
+            <li><a href="#" class="hover:text-white transition">Snorkeling Manta Bay</a></li>
+            <li><a href="#" class="hover:text-white transition">Ubud Sawah & Air Terjun</a></li>
+            <li><a href="#" class="hover:text-white transition">Uluwatu Sunset Kecak</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="font-bold text-white uppercase tracking-wider mb-4 text-sm">Layanan Pelanggan</h4>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-4 text-sm">Informasi Wisata</h4>
           <ul class="space-y-2 text-white/60">
-            <li><a href="#" class="hover:text-white transition">Konsultasi Custom Trip</a></li>
+            <li><a href="#" class="hover:text-white transition">Jadwal Speedboat Sanur</a></li>
+            <li><a href="#" class="hover:text-white transition">Sewa Mobil Bali + Driver</a></li>
+            <li><a href="#" class="hover:text-white transition">Paket Honeymoon Romantis</a></li>
             <li><a href="#" class="hover:text-white transition">Syarat & Ketentuan</a></li>
-            <li><a href="#" class="hover:text-white transition">Kebijakan Reschedule</a></li>
-            <li><a href="#" class="hover:text-white transition">Asuransi Perjalanan</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="font-bold text-white uppercase tracking-wider mb-4 text-sm">Newsletter</h4>
-          <p class="leading-relaxed text-white/60 mb-4">Dapatkan diskon dan info slot open trip terbaru.</p>
-          <form onsubmit="handleNewsletter(event)" class="flex flex-col space-y-2">
-            <input type="email" required placeholder="Email Anda" class="bg-white/10 px-4 py-2.5 text-xs text-white rounded-xl outline-none focus:border-[#00D690] border border-transparent">
-            <button type="submit" class="bg-[#00D690] hover:bg-[#00b377] text-white font-bold py-2.5 rounded-xl uppercase text-xs">
-              Langganan
-            </button>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-4 text-sm">Langganan Promo</h4>
+          <p class="leading-relaxed text-white/60 mb-4">Dapatkan diskon spesial musim liburan sekolah.</p>
+          <form onsubmit="event.preventDefault(); showToast('Terima kasih telah berlangganan!');" class="flex flex-col space-y-2">
+            <input type="email" required placeholder="Email Anda" class="bg-white/10 px-4 py-2.5 text-xs text-white rounded-lg outline-none">
+            <button type="submit" class="bg-[#14b8a6] hover:bg-[#0d9488] text-white font-bold py-2.5 rounded-lg uppercase text-xs">Kirim</button>
           </form>
         </div>
       </div>
 
       <div class="pt-8 text-center text-white/40 text-[11px]">
-        © 2026 SetSail Indonesia. Hak Cipta Dilindungi.
+        © 2026 SetSail Bali Indonesia. Hak Cipta Dilindungi.
       </div>
     </div>
   </footer>
 
   <!-- ================= MOBILE DRAWER ================= -->
   <div id="sideDrawerBackdrop" class="fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
-  <aside id="sideDrawer" class="fixed top-0 right-0 h-full w-[300px] sm:w-[360px] bg-[#1C1C1C] text-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col justify-between p-8 overflow-y-auto">
+  <aside id="sideDrawer" class="fixed top-0 right-0 h-full w-[300px] sm:w-[360px] bg-[#1b1d1f] text-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col justify-between p-8 overflow-y-auto">
     <div>
       <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-8">
-        <span class="font-extrabold text-2xl tracking-tight">SetSail</span>
-        <button id="closeDrawerBtn" class="text-white/60 hover:text-white text-2xl focus:outline-none" aria-label="Close menu">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+        <span class="font-extrabold text-2xl tracking-tight text-[#f4a836]">setsail.</span>
+        <button id="closeDrawerBtn" class="text-white/60 hover:text-white text-2xl focus:outline-none"><i class="fa-solid fa-xmark"></i></button>
       </div>
-
       <nav class="flex flex-col space-y-4 mb-8">
-        <span class="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">Navigasi Utama</span>
-        <a href="#" class="drawer-link text-sm font-semibold hover:text-[#00D690] transition">Beranda</a>
-        <a href="#destinations" class="drawer-link text-sm font-semibold hover:text-[#00D690] transition">Destinasi</a>
-        <a href="#trips" class="drawer-link text-sm font-semibold hover:text-[#00D690] transition">Paket Tour</a>
-        <a href="#why-us" class="drawer-link text-sm font-semibold hover:text-[#00D690] transition">Fasilitas</a>
-        <a href="#contact" class="drawer-link text-sm font-semibold hover:text-[#00D690] transition">Kontak</a>
+        <a href="#" class="drawer-link text-sm font-semibold hover:text-[#14b8a6]">Home</a>
+        <a href="#destinations" class="drawer-link text-sm font-semibold hover:text-[#14b8a6]">Destinasi</a>
+        <a href="#holiday" class="drawer-link text-sm font-semibold hover:text-[#14b8a6]">Paket Holiday</a>
+        <a href="#footer" class="drawer-link text-sm font-semibold hover:text-[#14b8a6]">Kontak</a>
       </nav>
-
       <div class="pt-6 border-t border-white/10">
-        <a href="https://wa.me/6287881272246?text=Halo%20SetSail%2C%20saya%20mau%20konsultasi%20paket%20wisata." target="_blank" rel="noopener noreferrer" class="block text-center w-full bg-[#00D690] hover:bg-[#00b377] text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl transition shadow mb-4">
-          <i class="fa-brands fa-whatsapp text-sm mr-1"></i> WhatsApp
-        </a>
+        <a href="https://wa.me/6287881272246" target="_blank" class="block text-center w-full bg-[#14b8a6] text-white text-xs font-bold uppercase py-3.5 rounded-xl">WhatsApp (+62 878-8127-2246)</a>
       </div>
     </div>
   </aside>
 
-  <!-- ================= TRIP DETAIL & BOOKING MODAL ================= -->
+  <!-- ================= TRIP MODAL ================= -->
   <div id="tripModalBackdrop" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
     <div id="tripModalCard" class="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl my-8 transform scale-95 opacity-0 transition-all duration-300 overflow-hidden text-left">
-      <button onclick="closeTripModal()" class="absolute top-5 right-5 z-20 w-9 h-9 bg-stone-100 hover:bg-[#00D690] hover:text-white rounded-full flex items-center justify-center text-sm transition focus:outline-none" aria-label="Close modal">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <div class="h-64 bg-stone-100 overflow-hidden relative">
-        <img id="tripModalImg" src="" alt="Trip Image" class="w-full h-full object-cover">
-        <div class="absolute bottom-4 left-6 bg-[#00D690] text-white text-sm font-bold px-3 py-1 rounded-md shadow" id="tripModalPrice">
-          Rp 0
-        </div>
-      </div>
-
+      <button onclick="closeTripModal()" class="absolute top-5 right-5 z-20 w-9 h-9 bg-stone-100 hover:bg-[#14b8a6] hover:text-white rounded-full flex items-center justify-center text-sm transition focus:outline-none"><i class="fa-solid fa-xmark"></i></button>
       <div class="p-6 sm:p-8">
-        <div class="flex items-center space-x-2 text-xs text-[#F59E0B] font-semibold mb-2" id="tripModalRating">
-          <i class="fa-solid fa-star"></i>
-          <span>Pasti Berangkat</span>
-        </div>
-        <h3 class="text-2xl sm:text-3xl font-extrabold text-[#1C1C1C] mb-4" id="tripModalTitle">Judul Trip</h3>
-        
+        <span class="text-xs font-bold text-[#14b8a6] uppercase tracking-wider block mb-1" id="tripModalPrice">Harga</span>
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-stone-900 mb-4" id="tripModalTitle">Judul Paket</h3>
         <div class="text-xs sm:text-sm text-stone-600 space-y-4 mb-6 leading-relaxed" id="tripModalDesc"></div>
-
         <div class="bg-stone-50 p-5 rounded-2xl border border-stone-200">
-          <h4 class="font-bold text-sm text-[#1C1C1C] mb-3">Reservasi Kursi / Konsultasi Jadwal:</h4>
+          <h4 class="font-bold text-sm text-stone-900 mb-3">Booking Langsung ke WhatsApp:</h4>
           <form onsubmit="handleTripBooking(event)" class="space-y-3">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <input type="text" id="bookName" required placeholder="Nama Lengkap *" class="bg-white border border-stone-200 px-4 py-2.5 rounded-xl text-xs text-stone-800 outline-none focus:border-[#00D690]">
-              <input type="tel" id="bookPhone" required placeholder="Nomor WhatsApp *" class="bg-white border border-stone-200 px-4 py-2.5 rounded-xl text-xs text-stone-800 outline-none focus:border-[#00D690]">
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <input type="date" id="bookDate" required class="bg-white border border-stone-200 px-4 py-2.5 rounded-xl text-xs text-stone-800 outline-none focus:border-[#00D690]">
-              <select id="bookPax" class="bg-white border border-stone-200 px-4 py-2.5 rounded-xl text-xs text-stone-800 outline-none focus:border-[#00D690]">
-                <option value="1">1 Orang</option>
-                <option value="2">2 Orang</option>
-                <option value="4">4 Orang (Grup)</option>
-                <option value="rombongan">> 5 Orang (Private Tour)</option>
-              </select>
-            </div>
-            <button type="submit" class="w-full bg-[#00D690] hover:bg-[#00b377] text-white text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition shadow flex items-center justify-center space-x-2">
-              <i class="fa-brands fa-whatsapp text-sm"></i>
-              <span>Kirim Booking via WhatsApp</span>
+            <input type="text" id="bookName" required placeholder="Nama Lengkap *" class="w-full bg-white border border-stone-200 px-4 py-2.5 rounded-xl text-xs outline-none">
+            <input type="tel" id="bookPhone" required placeholder="Nomor WhatsApp *" class="w-full bg-white border border-stone-200 px-4 py-2.5 rounded-xl text-xs outline-none">
+            <button type="submit" class="w-full bg-[#14b8a6] hover:bg-[#0d9488] text-white text-xs font-bold uppercase py-3.5 rounded-xl transition shadow">
+              <i class="fa-brands fa-whatsapp text-sm mr-1"></i> Hubungi WhatsApp untuk Booking
             </button>
           </form>
         </div>
@@ -533,196 +350,109 @@
   <!-- ================= VIDEO MODAL ================= -->
   <div id="videoModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
     <div class="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl">
-      <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-white/80 hover:text-white text-3xl focus:outline-none transition">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+      <button onclick="closeVideoModal()" class="absolute -top-12 right-0 text-white text-3xl focus:outline-none"><i class="fa-solid fa-xmark"></i></button>
       <div class="relative pt-[56.25%] w-full bg-black">
-        <iframe id="videoIframe" class="absolute inset-0 w-full h-full" src="" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        <iframe id="videoIframe" class="absolute inset-0 w-full h-full" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
       </div>
     </div>
   </div>
 
-  <!-- ================= TOAST ================= -->
-  <div id="toastNotification" class="fixed bottom-6 right-6 bg-[#1C1C1C] text-white px-6 py-4 rounded-xl shadow-2xl flex items-center space-x-3 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
-    <i class="fa-solid fa-circle-check text-[#00D690] text-lg"></i>
-    <span id="toastMessage" class="text-xs font-sans tracking-wide">Pesan terkirim!</span>
+  <div id="toastNotification" class="fixed bottom-6 right-6 bg-[#1b1d1f] text-white px-6 py-4 rounded-xl shadow-2xl flex items-center space-x-3 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+    <i class="fa-solid fa-circle-check text-[#14b8a6] text-lg"></i>
+    <span id="toastMessage" class="text-xs">Pesan terkirim!</span>
   </div>
 
-  <!-- ================= JAVASCRIPT ================= -->
   <script>
-    const TRIPS_DATA = {
-      'trip-0': {
+    const TRIPS = {
+      'penida-barat': {
         title: 'One Day Trip Nusa Penida Barat',
         price: 'Rp 350.000 / orang',
-        rating: '4.9 (210 Ulasan)',
-        image: 'images/trip-1.jpg',
-        desc: `<p class="font-bold text-xs uppercase mb-1">Rute & Destinasi:</p><p class="text-xs mb-3">Kelingking Beach · Broken Beach · Angel's Billabong · Crystal Bay</p><p class="font-bold text-xs uppercase mb-1">Fasilitas Termasuk:</p><p class="text-xs">Speedboat PP Sanur, Mobil AC di Penida, Makan Siang, Tiket Masuk, Driver & Guide Lokal.</p>`
+        desc: '<p>Mengunjungi tebing Kelingking T-Rex ikonik, Angel\'s Billabong kolam renang alami di tepi karang, Broken Beach, dan berenang di Crystal Bay berpasir putih lembut.</p><p class="mt-2"><strong>Fasilitas:</strong> Tiket Speedboat Sanur PP, Transportasi Mobil Avanza/Xpander AC di pulau, Makan Siang Resto, Driver merangkap Fotografer, Tiket Masuk Tempat Wisata.</p>'
       },
-      'trip-1': {
+      'penida-timur': {
         title: 'Nusa Penida Timur + Snorkeling Manta 2D1N',
         price: 'Rp 850.000 / orang',
-        rating: '5.0 (142 Ulasan)',
-        image: 'images/trip-2.jpg',
-        desc: `<p class="font-bold text-xs uppercase mb-1">Rute & Destinasi:</p><p class="text-xs mb-3">Diamond Beach · Atuh Beach · Rumah Pohon Molenteng · Manta Bay</p><p class="font-bold text-xs uppercase mb-1">Fasilitas Termasuk:</p><p class="text-xs">Hotel 1 Malam AC, Speedboat PP, Snorkeling Boat & Gear, 3x Makan, Dokumentasi Underwater GoPro.</p>`
+        desc: '<p>Jelajahi keindahan tersembunyi Pantai Diamond dengan tangga tebing batu megah, Rumah Pohon Molenteng, dan berenang bersama ikan pari manta raksasa di Manta Point.</p><p class="mt-2"><strong>Fasilitas:</strong> Hotel 1 Malam AC + Kolam Renang, Perahu Snorkeling, Alat Snorkel & Pelampung, Dokumentasi Underwater GoPro, Makan 3x Sehari.</p>'
       },
-      'trip-2': {
-        title: 'Ubud Cultural & Nature Waterfall 1D',
+      'ubud-waterfall': {
+        title: 'Ubud Waterfall & Cultural Trail 1D',
         price: 'Rp 450.000 / orang',
-        rating: '4.8 (88 Ulasan)',
-        image: 'images/trip-3.jpg',
-        desc: `<p class="font-bold text-xs uppercase mb-1">Rute & Destinasi:</p><p class="text-xs mb-3">Tegalalang Rice Terrace · Alas Harum Swing · Air Terjun Tibumana</p><p class="font-bold text-xs uppercase mb-1">Fasilitas Termasuk:</p><p class="text-xs">Mobil Pribadi All-In, Tiket Objek Wisata, Makan Siang Bebek Crispy Ubud, Coffee Tasting Luwak.</p>`
+        desc: '<p>Eksplorasi sawah bertingkat Tegalalang, mencoba ayunan raksasa Jungle Swing, dan menikmati kesegaran air terjun Tibumana tersembunyi di rimbunnya hutan Ubud.</p><p class="mt-2"><strong>Fasilitas:</strong> Mobil Pribadi All-In Driver Ramah, Tiket Masuk Wisata, Makan Siang Bebek Crispy Khas Ubud, Mineral Water Dingin.</p>'
       }
     };
 
-    // Drawer
-    const burgerBtn = document.getElementById('burgerBtn');
-    const sideDrawer = document.getElementById('sideDrawer');
-    const sideDrawerBackdrop = document.getElementById('sideDrawerBackdrop');
-    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
-    const drawerLinks = document.querySelectorAll('.drawer-link');
-
-    function toggleSideDrawer(open) {
-      if (open) {
-        sideDrawerBackdrop.classList.remove('opacity-0', 'pointer-events-none');
-        sideDrawer.classList.remove('translate-x-full');
-        document.body.style.overflow = 'hidden';
-      } else {
-        sideDrawerBackdrop.classList.add('opacity-0', 'pointer-events-none');
-        sideDrawer.classList.add('translate-x-full');
-        document.body.style.overflow = '';
-      }
-    }
-    if (burgerBtn) burgerBtn.addEventListener('click', () => toggleSideDrawer(true));
-    closeDrawerBtn.addEventListener('click', () => toggleSideDrawer(false));
-    sideDrawerBackdrop.addEventListener('click', () => toggleSideDrawer(false));
-    drawerLinks.forEach(l => l.addEventListener('click', () => toggleSideDrawer(false)));
-
-    // Trip Modal
-    const tripModalBackdrop = document.getElementById('tripModalBackdrop');
-    const tripModalCard = document.getElementById('tripModalCard');
-    const tripModalImg = document.getElementById('tripModalImg');
-    const tripModalPrice = document.getElementById('tripModalPrice');
-    const tripModalRating = document.getElementById('tripModalRating');
-    const tripModalTitle = document.getElementById('tripModalTitle');
-    const tripModalDesc = document.getElementById('tripModalDesc');
-    let currentSelectedTrip = '';
-
+    let selectedTrip = '';
     function openTripModal(key) {
-      const data = TRIPS_DATA[key];
+      const data = TRIPS[key];
       if (!data) return;
-      currentSelectedTrip = data.title;
-      tripModalImg.src = data.image;
-      tripModalPrice.textContent = data.price;
-      tripModalRating.innerHTML = `<i class="fa-solid fa-star"></i> <span>${data.rating}</span>`;
-      tripModalTitle.textContent = data.title;
-      tripModalDesc.innerHTML = data.desc;
-
-      tripModalBackdrop.classList.remove('opacity-0', 'pointer-events-none');
-      setTimeout(() => {
-        tripModalCard.classList.remove('scale-95', 'opacity-0');
-        tripModalCard.classList.add('scale-100', 'opacity-100');
-      }, 50);
+      selectedTrip = data.title;
+      document.getElementById('tripModalTitle').textContent = data.title;
+      document.getElementById('tripModalPrice').textContent = data.price;
+      document.getElementById('tripModalDesc').innerHTML = data.desc;
+      const b = document.getElementById('tripModalBackdrop');
+      const c = document.getElementById('tripModalCard');
+      b.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => { c.classList.remove('scale-95', 'opacity-0'); c.classList.add('scale-100', 'opacity-100'); }, 50);
       document.body.style.overflow = 'hidden';
     }
-
     function closeTripModal() {
-      tripModalCard.classList.remove('scale-100', 'opacity-100');
-      tripModalCard.classList.add('scale-95', 'opacity-0');
-      setTimeout(() => {
-        tripModalBackdrop.classList.add('opacity-0', 'pointer-events-none');
-        document.body.style.overflow = '';
-      }, 200);
+      const b = document.getElementById('tripModalBackdrop');
+      const c = document.getElementById('tripModalCard');
+      c.classList.remove('scale-100', 'opacity-100');
+      c.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => { b.classList.add('opacity-0', 'pointer-events-none'); document.body.style.overflow = ''; }, 200);
     }
-    tripModalBackdrop.addEventListener('click', (e) => { if (e.target === tripModalBackdrop) closeTripModal(); });
+    document.getElementById('tripModalBackdrop').addEventListener('click', (e) => { if (e.target === document.getElementById('tripModalBackdrop')) closeTripModal(); });
 
     function handleTripBooking(e) {
       e.preventDefault();
       const name = document.getElementById('bookName').value;
       const phone = document.getElementById('bookPhone').value;
-      const date = document.getElementById('bookDate').value;
-      const pax = document.getElementById('bookPax').value;
       closeTripModal();
-
-      const msg = encodeURIComponent(`Halo SetSail, saya ${name} (${phone}) ingin booking paket "${currentSelectedTrip}" untuk tanggal ${date} (${pax} pax). Mohon info ketersediaan slot.`);
+      const msg = encodeURIComponent(`Halo SetSail Bali, saya ${name} (${phone}) ingin booking paket "${selectedTrip}". Mohon info ketersediaan jadwal.`);
       window.open(`https://wa.me/6287881272246?text=${msg}`, '_blank');
-      showToast(`Terima kasih ${name}, diarahkan ke WhatsApp SetSail!`);
+      showToast('Diarahkan ke WhatsApp SetSail Bali...');
     }
 
-    // Video Modal
-    const videoModal = document.getElementById('videoModal');
-    const videoIframe = document.getElementById('videoIframe');
+    function handleSearch() {
+      const kw = document.getElementById('searchKeyword').value.trim();
+      document.getElementById('holiday').scrollIntoView({ behavior: 'smooth' });
+      showToast(kw ? `Mencari liburan ke "${kw}"...` : 'Menampilkan paket liburan Bali...');
+    }
+
+    // Video
     function openVideoModal() {
-      videoIframe.src = "https://player.vimeo.com/video/96728225?autoplay=1";
-      videoModal.classList.remove('opacity-0', 'pointer-events-none');
+      document.getElementById('videoIframe').src = "https://player.vimeo.com/video/96728225?autoplay=1";
+      document.getElementById('videoModal').classList.remove('opacity-0', 'pointer-events-none');
       document.body.style.overflow = 'hidden';
     }
     function closeVideoModal() {
-      videoIframe.src = "";
-      videoModal.classList.add('opacity-0', 'pointer-events-none');
+      document.getElementById('videoIframe').src = "";
+      document.getElementById('videoModal').classList.add('opacity-0', 'pointer-events-none');
       document.body.style.overflow = '';
     }
-    videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
+    document.getElementById('videoModal').addEventListener('click', (e) => { if (e.target === document.getElementById('videoModal')) closeVideoModal(); });
 
-    // Search Filter
-    function handleHeroSearch(e) {
-      e.preventDefault();
-      const kw = document.getElementById('searchKeyword').value.toLowerCase().trim();
-      const cards = document.querySelectorAll('.trip-card');
-      let matches = 0;
-      cards.forEach(card => {
-        const title = card.innerText.toLowerCase();
-        if (!kw || title.includes(kw)) {
-          card.style.display = 'flex';
-          matches++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-      document.getElementById('trips').scrollIntoView({ behavior: 'smooth' });
-      showToast(`Ditemukan ${matches} paket yang sesuai.`);
-    }
+    // Drawer
+    const bBtn = document.getElementById('burgerBtn');
+    const sD = document.getElementById('sideDrawer');
+    const sDB = document.getElementById('sideDrawerBackdrop');
+    const cDB = document.getElementById('closeDrawerBtn');
+    bBtn.addEventListener('click', () => { sDB.classList.remove('opacity-0', 'pointer-events-none'); sD.classList.remove('translate-x-full'); document.body.style.overflow = 'hidden'; });
+    function closeDrawer() { sDB.classList.add('opacity-0', 'pointer-events-none'); sD.classList.add('translate-x-full'); document.body.style.overflow = ''; }
+    cDB.addEventListener('click', closeDrawer);
+    sDB.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', closeDrawer));
 
-    function quickFilterDest(destName) {
-      document.getElementById('searchKeyword').value = destName;
-      document.getElementById('trips').scrollIntoView({ behavior: 'smooth' });
-      const cards = document.querySelectorAll('.trip-card');
-      cards.forEach(card => {
-        const dest = card.getAttribute('data-destination');
-        if (dest && dest.toLowerCase().includes(destName.toLowerCase())) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-      showToast(`Menampilkan paket untuk ${destName}`);
-    }
-
-    function handleNewsletter(e) {
-      e.preventDefault();
-      showToast('Terima kasih! Anda telah terdaftar dalam newsletter promo SetSail.');
-      e.target.reset();
-    }
-
-    // Toast
-    const toastEl = document.getElementById('toastNotification');
-    const toastMsgEl = document.getElementById('toastMessage');
-    let toastTimeout;
     function showToast(msg) {
-      clearTimeout(toastTimeout);
-      toastMsgEl.textContent = msg;
-      toastEl.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-      toastTimeout = setTimeout(() => {
-        toastEl.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-      }, 4000);
+      const t = document.getElementById('toastNotification');
+      document.getElementById('toastMessage').textContent = msg;
+      t.classList.remove('translate-y-24', 'opacity-0');
+      setTimeout(() => t.classList.add('translate-y-24', 'opacity-0'), 3500);
     }
 
-    // Escape Key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeTripModal();
-        closeVideoModal();
-        toggleSideDrawer(false);
-      }
+      if (e.key === 'Escape') { closeTripModal(); closeVideoModal(); closeDrawer(); }
     });
   </script>
 
